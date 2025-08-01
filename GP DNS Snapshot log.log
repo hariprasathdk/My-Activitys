@@ -1,0 +1,618 @@
+﻿root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack server show ab3f5877-3c3f-4704-abc1-b2692c1ca1ba --fit
++-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+| Field                               | Value                                                                                                                      |
++-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+| OS-DCF:diskConfig                   | MANUAL                                                                                                                     |
+| OS-EXT-AZ:availability_zone         | HCVAZGEN001M002400                                                                                                         |
+| OS-EXT-SRV-ATTR:host                | compute-2400-702200924.domain.tld                                                                                          |
+| OS-EXT-SRV-ATTR:hostname            | dns163vm002400                                                                                                             |
+| OS-EXT-SRV-ATTR:hypervisor_hostname | compute-2400-702200924.domain.tld                                                                                          |
+| OS-EXT-SRV-ATTR:instance_name       | instance-00000213                                                                                                          |
+| OS-EXT-SRV-ATTR:kernel_id           |                                                                                                                            |
+| OS-EXT-SRV-ATTR:launch_index        | 0                                                                                                                          |
+| OS-EXT-SRV-ATTR:ramdisk_id          |                                                                                                                            |
+| OS-EXT-SRV-ATTR:reservation_id      | r-l5lyy3h7                                                                                                                 |
+| OS-EXT-SRV-ATTR:root_device_name    | /dev/vda                                                                                                                   |
+| OS-EXT-SRV-ATTR:user_data           | I2Nsb3VkLWNvbmZpZwoKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIyMgICAgICAgICAgQklHLUlQIENMT1VELUNPTk |
+|                                     | ZJRyAgICAgICAgICAgIyMjCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKCndyaXRlX2ZpbGVzOgoKICAtIHBhdGg6IC9j |
+|                                     | b25maWcvY2xvdWQvb25ib2FyZC5zaAogICAgcGVybWlzc2lvbnM6IDA3NTUKICAgIG93bmVyOiByb290OnJvb3QKICAgIGNvbnRlbnQ6IHwKICAgICAgIyEvYm |
+|                                     | luL2Jhc2gKCiAgICAgICMgT1BFTlNUQUNLIE5PVEVTOiB0aGVzZSBpbWFnZXMgc3RpbGwgaGF2ZSBkZWZhdWx0IGFkbWluL3Jvb3QgYWNjb3VudHMKCiAgICAg |
+|                                     | ICMgTG9hZCBJbnB1dCBQYXJhbWV0ZXJzCiAgICAgIC4gL2NvbmZpZy9jbG91ZC9vbmJvYXJkX2NvbmZpZ192YXJzCgogICAgICAjIERvd25sb2FkIE9uYm9hcm |
+|                                     | RpbmcgTGlicy4KICAgICAgIyBDb3VsZCBiZSBwcmUtcGFja2FnZWQgb3IgaG9zdGVkIGludGVybmFsbHkKICAgICAgY3VybCAtbyAvY29uZmlnL2Nsb3VkL2Y1 |
+|                                     | LWNsb3VkLWxpYnMudGFyLmd6IC0tc2lsZW50IC0tZmFpbCAtLXJldHJ5IDIwIC1rIC1MICRGNV9DTE9VRF9MSUJTX1VSTAogICAgICB0YXIgeHZ6ZiAvY29uZm |
+|                                     | lnL2Nsb3VkL2Y1LWNsb3VkLWxpYnMudGFyLmd6IC1DIC9jb25maWcvY2xvdWQvCiAgICAgIG12IC9jb25maWcvY2xvdWQvRjVOZXR3b3Jrcy1mNS1jbG91ZC1s |
+|                                     | aWJzLSogL2NvbmZpZy9jbG91ZC9mNS1jbG91ZC1saWJzCiAgICAgIGNkIC9jb25maWcvY2xvdWQvZjUtY2xvdWQtbGlicwoKICAgICAgSUZTPScgJyByZWFkIC |
+|                                     | 1yYSBBRERSIDw8PCAiJHtCSUdJUF9QUk9WSVNJT059IgogICAgICBmb3IgaSBpbiAiJHtBRERSW0BdfSI7IGRvCiAgICAgICAgcHJvdl9tb2Q9IiR7cHJvdl9t |
+|                                     | b2R9IC0tbW9kdWxlICR7aX0gIgogICAgICBkb25lCgogICAgICAjIExpY2Vuc2UgLyBQcm92aXNpb24KICAgICAgZjUtcmVzdC1ub2RlIC9jb25maWcvY2xvdW |
+|                                     | QvZjUtY2xvdWQtbGlicy9zY3JpcHRzL29uYm9hcmQuanMgXAogICAgICAtbyAvdmFyL2xvZy9vbmJvYXJkLmxvZyBcCiAgICAgIC0tbm8tcmVib290IFwKICAg |
+|                                     | ICAgLS1ob3N0IGxvY2FsaG9zdCBcCiAgICAgIC0tdXNlciBhZG1pbiBcCiAgICAgIC0tcGFzc3dvcmQgJHtCSUdJUF9BRE1JTl9QQVNTV09SRH0gXAogICAgIC |
+|                                     | AtLXNldC1yb290LXBhc3N3b3JkICJvbGQ6ZGVmYXVsdCxuZXc6JHtCSUdJUF9ST09UX1BBU1NXT1JEfSIgXAogICAgICAtLXVwZGF0ZS11c2VyICJ1c2VyOiR7 |
+|                                     | QklHSVBfQURNSU5fVVNFUk5BTUV9LHBhc3N3b3JkOiR7QklHSVBfQURNSU5fUEFTU1dPUkR9LHJvbGU6YWRtaW4sc2hlbGw6dG1zaCIgXAogICAgICAtLWhvc3 |
+|                                     | RuYW1lICR7SE9TVE5BTUV9LnZvZGFmb25lLmNvbS5hdSBcCiAgICAgIC0tZ2xvYmFsLXNldHRpbmcgaG9zdG5hbWU6JHtIT1NUTkFNRX0gXAogICAgICAtLW50 |
+|                                     | cCAxMC4xMDUuMTM4LjQgXAogICAgICAtLW50cCAxMC4xMDUuMTM4LjM2IFwKICAgICAgLS1udHAgMTAuMTA1LjEzOC42OCBcCiAgICAgIC0tdHogQXVzdHJhbG |
+|                                     | lhL1N5ZG5leSBcCiAgICAgIC0tZG5zIDEwLjM2LjE2LjE2IFwKICAgICAgLS1kbnMgMTAuNDkuMTYuMTYgXAogICAgICAtLWxpY2Vuc2UtcG9vbCBcCiAgICAg |
+|                                     | IC0tYmlnLWlxLWhvc3QgJHtCSUdJUV9IT1NUfSBcCiAgICAgIC0tYmlnLWlxLXVzZXIgJHtCSUdJUV9VU0VSfSBcCiAgICAgIC0tYmlnLWlxLXBhc3N3b3JkIC |
+|                                     | R7QklHSVFfUEFTU1dPUkR9IFwKICAgICAgLS1saWNlbnNlLXBvb2wtbmFtZSAke0JJR0lRX0xJQ0VOU0VfUE9PTF9OQU1FfSBcCiAgICAgIC0tY2xvdWQga3Zt |
+|                                     | IFwKICAgICAgLS1iaWctaXAtbWdtdC1hZGRyZXNzICR7TUdNVF9BRERSRVNTfSBcCiAgICAgICR7cHJvdl9tb2R9CgogICAgICAjIyMjIyBHZW5lcmF0ZSBuZX |
+|                                     | cgZGV2aWNlIENlcnRpZmljYXRlICMjIyMjCiAgICAgIG9wZW5zc2wgcmVxIC14NTA5IC1ub2RlcyAtZGF5cyAzNjUwIC1uZXdrZXkgcnNhOjIwNDggLWtleW91 |
+|                                     | dCAvY29uZmlnL2h0dHBkL2NvbmYvc3NsLmtleS9zZXJ2ZXIua2V5IC1vdXQgL2NvbmZpZy9odHRwZC9jb25mL3NzbC5jcnQvc2VydmVyLmNydCAtc3ViaiAvQz |
+|                                     | 1BVS9TVD1OU1cvTD1TeWRuZXkvTz1Wb2RhZm9uZS9PVT1JUE4vQ049JHtIT1NUTkFNRX0KCiAgICAgICMgT1BFTlNUQUNLIE5PVEVTOiB0aGVzZSBpbWFnZXMg |
+|                                     | c3RpbGwgaGF2ZSBkZWZhdWx0IGFkbWluL3Jvb3QgYWNjb3VudHMKCiAgICAgICMjIyMjIEJFR0lOIE5FVFdPUksgIyMjIyMjIyMKICAgICAgIyBOT1RFOiBtdH |
+|                                     | UgJiBwb3J0IGFsbG93IGxpc3QgdG8gYmUgYWRkZWQgdG8gbmV0d29yay5qcwogICAgICAjIE5PVEU6IG5ldHdvcmsuanMgd2FzIG1vZGlmaWVkIHRvIHNldCBu |
+|                                     | ZXcgc2VsZi1pcHMgd2l0aCBhIGRlZmF1bHQgcG9ydCBsb2NrZG93biA9ICJub25lIiB3aGVuIGxlZnQgYmxhbmsuCiAgICAgIGY1LXJlc3Qtbm9kZSAvY29uZm |
+|                                     | lnL2Nsb3VkL2Y1LWNsb3VkLWxpYnMvc2NyaXB0cy9uZXR3b3JrLmpzIFwKICAgICAgLW8gL3Zhci9sb2cvb25ib2FyZC1uZXR3b3JrLmxvZyBcCiAgICAgIC0t |
+|                                     | aG9zdCAke01HTVRfQUREUkVTU30gXAogICAgICAtLXVzZXIgJHtCSUdJUF9BRE1JTl9VU0VSTkFNRX0gXAogICAgICAtLXBhc3N3b3JkICR7QklHSVBfQURNSU |
+|                                     | 5fUEFTU1dPUkR9IFwKICAgICAgLS12bGFuICJuYW1lOiR7TkVUV09SS18xX05BTUV9LCBuaWM6MS4xIiBcCiAgICAgIC0tc2VsZi1pcCAibmFtZToke05FVFdP |
+|                                     | UktfMV9OQU1FfV9zZWxmLCBhZGRyZXNzOiR7TkVUV09SS18xX0FERFJFU1N9LyR7TkVUV09SS18xX1BSRUZJWH0sIHZsYW46JHtORVRXT1JLXzFfTkFNRX0iIF |
+|                                     | wKICAgICAgLS12bGFuICJuYW1lOiR7TkVUV09SS18yX05BTUV9LCBuaWM6MS4yIiBcCiAgICAgIC0tc2VsZi1pcCAibmFtZToke05FVFdPUktfMl9OQU1FfV9z |
+|                                     | ZWxmLCBhZGRyZXNzOiR7TkVUV09SS18yX0FERFJFU1N9LyR7TkVUV09SS18yX1BSRUZJWH0sIHZsYW46JHtORVRXT1JLXzJfTkFNRX0iIFwKCiAgICAgICMgUl |
+|                                     | VOIFVTRVIgQ1VTVE9NIENPTU1BTkRTCiAgICAgIGY1LXJlc3Qtbm9kZSAvY29uZmlnL2Nsb3VkL2Y1LWNsb3VkLWxpYnMvc2NyaXB0cy9ydW5TY3JpcHQuanMg |
+|                                     | XAogICAgICAtLWZpbGUgL2NvbmZpZy9jbG91ZC9jdXN0b20tY29uZmlnLnNoIFwKICAgICAgLS1jd2QgL2NvbmZpZy9jbG91ZCBcCiAgICAgIC1vIC92YXIvbG |
+|                                     | 9nL2N1c3RvbS1jb25maWcubG9nIFwKCgojIyMjIyMjIyMjIyMgQkVHSU4gVVNFUiBDVVNUT01JWkUgU0VDVElPTiBJTiBXUklURV9GSUxFUzogIyMjIyMjIyMj |
+|                                     | IyMjCgogIC0gcGF0aDogL2NvbmZpZy9jbG91ZC9vbmJvYXJkX2NvbmZpZ192YXJzCiAgICBwZXJtaXNzaW9uczogMDc1NQogICAgb3duZXI6IHJvb3Q6cm9vdA |
+|                                     | ogICAgY29udGVudDogfAogICAgICAjIS9iaW4vYmFzaAoKICAgICAgSE9TVE5BTUU9RE5TMTYzVk0wMDI0MDAKICAgICAgQklHSVBfUFJPVklTSU9OPSJsdG06 |
+|                                     | bm9taW5hbCBndG06bm9taW5hbCBhZm06bm9taW5hbCBhdnI6bm9taW5hbCIKCiAgICAgIEJJR0lQX0FETUlOX1VTRVJOQU1FPWFkbWluCiAgICAgIEJJR0lQX0 |
+|                                     | FETUlOX1BBU1NXT1JEPSJlODZiWFRAMSIKICAgICAgQklHSVBfUk9PVF9QQVNTV09SRD0iZTg2YlhUQDEiCgogICAgICBNR01UX0FERFJFU1M9MTAuNTkuMTcu |
+|                                     | MzEKICAgICAgTUdNVF9DSURSX0JMT0NLPTEwLjU5LjE3LjAvMjQKICAgICAgTUdNVF9ORVQ9JHtNR01UX0NJRFJfQkxPQ0slLyp9CiAgICAgIE1HTVRfUFJFRk |
+|                                     | lYPSR7TUdNVF9DSURSX0JMT0NLIyovfQogICAgICBNR01UX0dBVEVXQVk9MTAuNTkuMTcuMQogICAgICBNR01UX01UVT0xNDYwCgogICAgICBORVRXT1JLXzFf |
+|                                     | TkFNRT1zaWctdnJmCiAgICAgIE5FVFdPUktfMV9BRERSRVNTPTEwLjI0Ny4yNTUuMjU0CiAgICAgIE5FVFdPUktfMV9DSURSX0JMT0NLPTEwLjI0Ny4yNTUuMj |
+|                                     | I0LzI3CiAgICAgIE5FVFdPUktfMV9ORVQ9JHtORVRXT1JLXzFfQ0lEUl9CTE9DSyUvKn0KICAgICAgTkVUV09SS18xX1BSRUZJWD0ke05FVFdPUktfMV9DSURS |
+|                                     | X0JMT0NLIyovfQogICAgICBORVRXT1JLXzFfTVRVPTE1MDAKCiAgICAgIE5FVFdPUktfMl9OQU1FPWduLXZyZgogICAgICBORVRXT1JLXzJfQUREUkVTUz0xMD |
+|                                     | EuMTE5LjI0MS4yNTQKICAgICAgTkVUV09SS18yX0NJRFJfQkxPQ0s9MTAxLjExOS4yNDEuMjQ4LzI5CiAgICAgIE5FVFdPUktfMl9ORVQ9JHtORVRXT1JLXzJf |
+|                                     | Q0lEUl9CTE9DSyUvKn0KICAgICAgTkVUV09SS18yX1BSRUZJWD0ke05FVFdPUktfMl9DSURSX0JMT0NLIyovfQogICAgICBORVRXT1JLXzJfTVRVPTE1MDAKCi |
+|                                     | AgICAgIEJJR0lRX0hPU1Q9MTAuNTkuMTMwLjMxCiAgICAgIEJJR0lRX1VTRVI9TGljZW5zZU1lCiAgICAgIEJJR0lRX1BBU1NXT1JEPSJERDlIKHNxUSIKICAg |
+|                                     | ICAgQklHSVFfTElDRU5TRV9QT09MX05BTUU9UGVycGV0dWFsLUxpY2Vuc2VzCiAgICAgIEJJR0lQX01HTVRfQUREUkVTUz0xMC41OS4xNy4zMQoKICAgICAgRj |
+|                                     | VfQ0xPVURfTElCU19VUkw9aHR0cDovLzEwLjU5LjI0LjEwL3JlcG8vRjUvZjUtY2xvdWQtbGlicy50YXIuZ3oKCiAgLSBwYXRoOiAvY29uZmlnL3NzaC92aGFf |
+|                                     | YmFubmVyCiAgICBjb250ZW50OiB8CiAgICAgICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi |
+|                                     | oqKioqKioqKioqKioqKioqKioqKioKICAgICAgKiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg |
+|                                     | ICAgICAgICAgICAgICAgICAgICAgKgogICAgICAqICAgICAgICBJVCBJUyBBTiBPRkZFTlNFIFRPIENPTlRJTlVFIEFDQ0VTUyBXSVRIT1VUIFBST1BFUiBBVV |
+|                                     | RIT1JJU0FUSU9OICAgICAgICAgICAqCiAgICAgICogICAgICAgICAgICAgICAgICAgICBGUk9NIFZPREFGT05FIEhVVENISVNPTiBBVVNUUkFMSUEgICAgICAg |
+|                                     | ICAgICAgICAgICAgICAgICAgICAgICoKICAgICAgKiAgICAgVkhBIG1vbml0b3JzIGFsbCBzeXN0ZW1zIGFuZCB3b3JrcGxhY2VzIGZvciB1bmF1dGhvcmlzZW |
+|                                     | QgYWNjZXNzLCBpbXByb3BlciAgICAgKgogICAgICAqICAgICB1c2UsIHVzZXIgc2FmZXR5LCBhbmQgdGhlIHNlY3VyaXR5IG9mIHBoeXNpY2FsIGFuZCBpbnRl |
+|                                     | bGxlY3R1YWwgcHJvcGVydHkuICAgICAqCiAgICAgICogICAgICAgICAgICBBdXRob3Jpc2VkIGluZGl2aWR1YWxzIG1heSBjb250aW51b3VzbHkgbW9uaXRvci |
+|                                     | B0aGVzZSAgICAgICAgICAgICAgICAgICoKICAgICAgKiAgICAgICAgIHN5c3RlbXMgYnkgZWxlY3Ryb25pYyBvciBtYW51YWwgcmV2aWV3IG9mIGFjdGl2aXR5 |
+|                                     | IGFuZCBsb2dzLiAgICAgICAgICAgICAgKgogICAgICAqICAgICAgICAgICBCeSB1c2luZyB0aGlzIHN5c3RlbSwgeW91IGFja25vd2xlZGdlIHRoYXQgeW91IH |
+|                                     | VuZGVyc3RhbmQgICAgICAgICAgICAgICAqCiAgICAgICogICAgICAgICAgICAgICBhbmQgYWNjZXB0IFZIQSdzIHNlY3VyaXR5IGFuZCB3b3JrcGxhY2UgcG9s |
+|                                     | aWNpZXMuICAgICAgICAgICAgICAgICAgICoKICAgICAgKiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC |
+|                                     | AgICAgICAgICAgICAgICAgICAgICAgICAgKgogICAgICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq |
+|                                     | KioqKioqKioqKioqKioqKioqKioqKioqKioqCgogIC0gcGF0aDogL2NvbmZpZy9jbG91ZC9leHRyYV9jb25maWcudG1vcwogICAgY29udGVudDogfAogICAgIC |
+|                                     | AKCiAgLSBwYXRoOiAvY29uZmlnL2Nsb3VkL2N1c3RvbS1jb25maWcuc2gKICAgIHBlcm1pc3Npb25zOiAwNzU1CiAgICBvd25lcjogcm9vdDpyb290CiAgICBj |
+|                                     | b250ZW50OiB8CiAgICAgICMhL2Jpbi9iYXNoCgogICAgICAjIyMjIyBMb2FkIElucHV0IFBhcmFtZXRlcnMgIyMjIyMKICAgICAgLiAvY29uZmlnL2Nsb3VkL2 |
+|                                     | 9uYm9hcmRfY29uZmlnX3ZhcnMKCiAgICAgICMjIyMjIEFkZCBPU1MgQ29uZmlndXJhdGlvbiAjIyMjIwogICAgICBlY2hvICJBZGQgT1NTIENvbmZpZ3VyYXRp |
+|                                     | b24iID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgICMjIyMjIEFERCBNR01UIFJPVVRFUyBGT1IgT1NTICMjIyMjIyMjCiAgICAgIHRtc2ggY3 |
+|                                     | JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG50cDEgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjEwNS4xMzguNC8zMiB9CiAgICAgIHRt |
+|                                     | c2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG50cDIgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjEwNS4xMzguMzYvMzIgfQogIC |
+|                                     | AgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBudHAzIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC4xMDUuMTM4LjY4LzMy |
+|                                     | IH0KCiAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIGRuczEgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjM2LjE2Lj |
+|                                     | E2LzMyIH0KICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgZG5zMiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNDku |
+|                                     | MTYuMTYvMzIgfQoKICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgaXNlMSB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMT |
+|                                     | AuMzMuOC40Ny8zMiB9CiAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIGlzZTIgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3Jr |
+|                                     | IDEwLjMzLjguNDgvMzIgfQogICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBpc2UzIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d2 |
+|                                     | 9yayAxMC4zMy4yMDQuNDcvMzIgfQogICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBpc2U0IHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0g |
+|                                     | bmV0d29yayAxMC4zMy4yMDQuNDgvMzIgfQoKICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgbm4tbmV0Y29vbCB7IGdhdGV3YXkgJHtNR0 |
+|                                     | 1UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMC4xMC8zMiB9CiAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIGVrLW5ldGNvb2wgeyBnYXRl |
+|                                     | d2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5Mi4xMC8zMiB9CiAgICAgIAogICAgICB0bXNoIHNhdmUgL3N5cyBjb25maWcKCgogICAgICB0bX |
+|                                     | NoIG1vZGlmeSBzeXMgc3NoZCBpbmNsdWRlICJCYW5uZXIgL2NvbmZpZy9zc2gvdmhhX2Jhbm5lciIKICAgICAgdG1zaCBtb2RpZnkgc3lzIHNzaGQgYmFubmVy |
+|                                     | IGVuYWJsZWQKICAgICAgdG1zaCBtb2RpZnkgc3lzIGdsb2JhbC1zZXR0aW5ncyB7IGd1aS1zZWN1cml0eS1iYW5uZXIgZW5hYmxlZCBndWktc2VjdXJpdHktYm |
+|                                     | FubmVyLXRleHQgIioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq |
+|                                     | KioqCiAgICAgIElUIElTIEFOIE9GRkVOU0UgVE8gQ09OVElOVUUgQUNDRVNTIFdJVEhPVVQgUFJPUEVSIEFVVEhPUklTQVRJT04gRlJPTSBWT0RBRk9ORSBIVV |
+|                                     | RDSElTT04gQVVTVFJBTElBCiAgICAgIFZIQSBtb25pdG9ycyBhbGwgc3lzdGVtcyBhbmQgd29ya3BsYWNlcyBmb3IgdW5hdXRob3Jpc2VkIGFjY2VzcywgaW1w |
+|                                     | cm9wZXIgdXNlLCB1c2VyIHNhZmV0eSwgYW5kIHRoZSBzZWN1cml0eSBvZiBwaHlzaWNhbCBhbmQgaW50ZWxsZWN0dWFsIHByb3BlcnR5LgogICAgICBBdXRob3 |
+|                                     | Jpc2VkIGluZGl2aWR1YWxzIG1heSBjb250aW51b3VzbHkgbW9uaXRvciB0aGVzZSBzeXN0ZW1zIGJ5IGVsZWN0cm9uaWMgb3IgbWFudWFsIHJldmlldyBvZiBh |
+|                                     | Y3Rpdml0eSBhbmQgbG9ncy4KICAgICAgQnkgdXNpbmcgdGhpcyBzeXN0ZW0sIHlvdSBhY2tub3dsZWRnZSB0aGF0IHlvdSB1bmRlcnN0YW5kIGFuZCBhY2NlcH |
+|                                     | QgVkhBJ3Mgc2VjdXJpdHkgYW5kIHdvcmtwbGFjZSBwb2xpY2llcy4KICAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq |
+|                                     | KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioiIH0KICAgICAgdG1zaCBtb2RpZnkgYXV0aCByZW1vdGUtcm9sZSByb2xlLWluZm8gYWRkIH |
+|                                     | sgREMxIHsgYXR0cmlidXRlICJGNS1MVE0tVXNlci1JbmZvLTE9REMxIiBjb25zb2xlICIlRjUtTFRNLVVzZXItQ29uc29sZSIgcm9sZSAiJUY1LUxUTS1Vc2Vy |
+|                                     | LVJvbGUiIHVzZXItcGFydGl0aW9uICIlRjUtTFRNLVVzZXItUGFydGl0aW9uIiBsaW5lLW9yZGVyIDEgfSB9CiAgICAgIHRtc2ggbW9kaWZ5IGF1dGggcmVtb3 |
+|                                     | RlLXJvbGUgcm9sZS1pbmZvIGFkZCB7IEFkbWluLUdwIHsgYXR0cmlidXRlICJwcml2LWx2bD0xNSIgY29uc29sZSAidG1zaCIgcm9sZSAiYWRtaW4iIHVzZXIt |
+|                                     | cGFydGl0aW9uICJBbGwiIGxpbmUtb3JkZXIgMiB9IH0KICAgICAgdG1zaCBtb2RpZnkgYXV0aCByZW1vdGUtcm9sZSByb2xlLWluZm8gYWRkIHsgR3Vlc3QtR3 |
+|                                     | AgeyBhdHRyaWJ1dGUgInByaXYtbHZsPTE0IiBjb25zb2xlICJ0bXNoIiByb2xlICJndWVzdCIgdXNlci1wYXJ0aXRpb24gIkFsbCIgbGluZS1vcmRlciAzIH0g |
+|                                     | fQogICAgICB0bXNoIG1vZGlmeSBhdXRoIHJlbW90ZS11c2VyIHsgZGVmYXVsdC1yb2xlIGd1ZXN0IHJlbW90ZS1jb25zb2xlLWFjY2VzcyB0bXNoIH0KCiAgIC |
+|                                     | AgIHRtc2ggY3JlYXRlIGF1dGggdGFjYWNzIHN5c3RlbS1hdXRoIHsgYXV0aGVudGljYXRpb24gdXNlLWFsbC1zZXJ2ZXJzIHByb3RvY29sIGxjcCBzZWNyZXQg |
+|                                     | Y2RuIHNlcnZlcnMgYWRkIHsgMTAuMzMuOC40NyAxMC4zMy44LjQ4IDEwLjMzLjIwNC40OCAxMC4zMy4yMDQuNDcgfSBzZXJ2aWNlIHBwcCB9CiAgICAgIHRtc2 |
+|                                     | ggbW9kaWZ5IGF1dGggc291cmNlIHsgdHlwZSB0YWNhY3MgfQoKICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgeyBjb21tdW5pdGllcyBkZWxldGUgeyBjb21t |
+|                                     | LXB1YmxpYyB7IH0gfSBhdXRoLXRyYXAgZW5hYmxlZCBzeXMtY29udGFjdCBlbnRlcnByaXNlaXBAdm9kYWZvbmUuY29tLmF1IHVzZXJzIGFkZCB7IGlOTVNfMS |
+|                                     | B7IGFjY2VzcyBybyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgb2lkLXN1YnNldCAuMSBwcml2YWN5LXBhc3N3b3JkICd2MGRy |
+|                                     | QGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHVzZXJuYW1lIE5NUyB9IH0gfQogICAgICB0bXNoIG1vZGlmeS |
+|                                     | BzeXMgc25tcCBpbmNsdWRlICJlbmdpbmVJRCAke0hPU1ROQU1FfSIKCiAgICAgICMjIyMjIFN0YXJ0IFNpdGUgc3BlY2lmYyBTTk1QIGFuZCBTeXNsb2cgY29u |
+|                                     | ZmlndXJhdGlvbiAjIyMjIyMKICAgICAgZWNobyAiU3RhcnRpbmcgc2l0ZS1zcGVjaWZpYyBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZm |
+|                                     | lnLmxvZwoKICAgICAgY2FzZSAke0hPU1ROQU1FfSBpbgogICAgICAqUDIyMjAwMSopICBlY2hvICJBZGRpbmcgRXJza2luZSBQYXJrIGNvbmZpZ3VyYXRpb24i |
+|                                     | ID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vRUsgeyBnYXRld2 |
+|                                     | F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjEzMC4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG1h |
+|                                     | bm9OTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNTIuMi4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW |
+|                                     | 50LXJvdXRlIHN5c2xvZ0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC4zMy4yMDguMjYvMzIgfQogICAgICAgICAgICAgdG1zaCBjcmVh |
+|                                     | dGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE2LjI0LzMyIH0KICAgICAgIC |
+|                                     | AgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBOTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMS4wLzI0 |
+|                                     | IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMT |
+|                                     | AuMzMuMTkzLjAvMjQgfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHN5c2xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90ZXN5c2xvZ0VLIHsg |
+|                                     | aG9zdCAxMC4zMy4yMDguMjYgfSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHN5cy1sb2NhdGlvbiAiTkZWIFByb2R1Y3Rpb24gRUsiCi |
+|                                     | AgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB7IGFsbG93ZWQtYWRkcmVzc2VzIGFkZCB7IDEwLjMzLjEuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5 |
+|                                     | My4wLzI1NS4yNTUuMjU1LjAgMTAuNTIuMi4zNC8yNTUuMjU1LjI1NS4yNTUgMTAuNTIuMTMwLjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4yLjAvMjU1LjI1NS |
+|                                     | 4yNTUuMCAxMC4zMy4xOTQuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjAuMTAvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjE5Mi4xMC8yNTUuMjU1LjI1NS4yNTUg |
+|                                     | fSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB0cmFwcyBhZGQgeyBpMTBfMzNfMF8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIG |
+|                                     | F1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMCBuZXR3b3JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wg |
+|                                     | YWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeX |
+|                                     | Mgc25tcCB0cmFwcyBhZGQgeyBpMTBfMzNfMTkyXzEwXzEgeyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4x |
+|                                     | LjIxIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YW |
+|                                     | N5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgIDs7CiAgICAgICpQMDAyNDAwKikgIGVjaG8gICJBZGRpbmcgTmV3aW5ndG9uIGNv |
+|                                     | bmZpZ3VyYXRpb24iID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW |
+|                                     | 5vRUsgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjEzMC4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2Vt |
+|                                     | ZW50LXJvdXRlIG1hbm9OTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNTIuMi4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIH |
+|                                     | N5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC4zMy4yMDguMjYvMzIgfQogICAgICAgICAg |
+|                                     | ICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE2LjI0Lz |
+|                                     | MyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBOTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsg |
+|                                     | MTAuMzMuMS4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQV |
+|                                     | l9IG5ldHdvcmsgMTAuMzMuMTkzLjAvMjQgfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHN5c2xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90 |
+|                                     | ZXN5c2xvZ05OIHsgaG9zdCAxMC4zMy4xNi4yNCB9IH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgc3lzLWxvY2F0aW9uICJORlYgUHJvZH |
+|                                     | VjdGlvbiBOTiIKICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHsgYWxsb3dlZC1hZGRyZXNzZXMgYWRkIHsgMTAuMzMuMS4wLzI1NS4yNTUuMjU1 |
+|                                     | LjAgMTAuMzMuMTkzLjAvMjU1LjI1NS4yNTUuMCAxMC41Mi4yLjM0LzI1NS4yNTUuMjU1LjI1NSAxMC41Mi4xMzAuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLj |
+|                                     | IuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5NC4zNC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMC4xMC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMTkyLjEwLzI1NS4y |
+|                                     | NTUuMjU1LjI1NSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF8zM18wXzEwXzEgeyBhdXRoLXBhc3N3b3JkIC |
+|                                     | d2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4xLjIwIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFj |
+|                                     | eS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgICAgIHRtc2 |
+|                                     | ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF8zM18xOTJfMTBfMSB7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBo |
+|                                     | b3N0IDEwLjMzLjEuMjEgbmV0d29yayBtZ210IHByaXZhY3ktcGFzc3dvcmQgJ3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbC |
+|                                     | BhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lvbiAzIH0gfQogICAgICAgICAgOzsKICAgICAgKk0wMDI0MDAqKSAgZWNobyAgIkFkZGluZyBN |
+|                                     | b2RlbCBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm |
+|                                     | 91dGUgbWFub01MIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41OS4xMzAuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMg |
+|                                     | bWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dNTCB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNDEuMTYuMTQ4LzMyIH0KICAgICAgICAgICAgIH |
+|                                     | Rtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBNTCB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNDEuMS4wLzI0IH0KICAg |
+|                                     | ICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHN5cy1sb2NhdGlvbiAiTkZWIE1vZGVsIE5OIgogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHN5c2 |
+|                                     | xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90ZXN5c2xvZ01MIHsgaG9zdCAxMC40MS4xNi4xNDggfSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5 |
+|                                     | IHN5cyBzbm1wIHsgYWxsb3dlZC1hZGRyZXNzZXMgYWRkIHsgMTAuNDEuMS4wLzI1NS4yNTUuMjU1LjAgMTAuNDEuMi4zNC8yNTUuMjU1LjI1NS4yNTUgMTAuMz |
+|                                     | MuMi4wLzI1NS4yNTUuMjU1LjAgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCBzeXMtbG9jYXRpb24gIk5GViBNb2RlbCIKICAgICAgICAg |
+|                                     | ICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF80MV8xXzIwXzEgeyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbC |
+|                                     | BtZDUgaG9zdCAxMC40MS4xLjIwIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHkt |
+|                                     | bGV2ZWwgYXV0aC1wcml2YWN5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0gCiAgICAgICAgICA7OwogICAgICAqUDAwNDMwMCopIGVjaG8gICJBZG |
+|                                     | RpbmcgR29sZCBDb2FzdCBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1h |
+|                                     | bmFnZW1lbnQtcm91dGUgbWFub0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41Mi4xMzAuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIG |
+|                                     | NyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjIuMC8yNCB9CiAgICAgICAg |
+|                                     | ICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMjA4Lj |
+|                                     | I2LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ05OIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0 |
+|                                     | d29yayAxMC4zMy4xNi4yNC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wTk4geyBnYXRld2F5ICR7TUdNVF |
+|                                     | 9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wRUsgeyBnYXRl |
+|                                     | d2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5My4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzeXNsb2cgeyByZW1vdGUtc2 |
+|                                     | VydmVycyBhZGQgeyByZW1vdGVzeXNsb2dFSyB7IGhvc3QgMTAuMzMuMjA4LjI2IH0gfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCBzeXMt |
+|                                     | bG9jYXRpb24gIk5GViBQcm9kdWN0aW9uIEdUIgogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgeyBhbGxvd2VkLWFkZHJlc3NlcyBhZGQgeyAxMC |
+|                                     | 4zMy4xLjAvMjU1LjI1NS4yNTUuMCAxMC4zMy4xOTMuMC8yNTUuMjU1LjI1NS4wIDEwLjUyLjIuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjUyLjEzMC4zNC8yNTUu |
+|                                     | MjU1LjI1NS4yNTUgMTAuMzMuMi4wLzI1NS4yNTUuMjU1LjAgMTAuMzMuMTk0LjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4wLjEwLzI1NS4yNTUuMjU1LjI1NS |
+|                                     | AxMC4zMy4xOTIuMTAvMjU1LjI1NS4yNTUuMjU1IH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMzXzBfMTBf |
+|                                     | MSB7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBob3N0IDEwLjMzLjEuMjAgbmV0d29yayBtZ210IHByaXZhY3ktcGFzc3dvcm |
+|                                     | QgJ3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbCBhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lvbiAzIH0g |
+|                                     | fQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMzXzE5Ml8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIG |
+|                                     | F1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMSBuZXR3b3JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wg |
+|                                     | YWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgIDs7CiAgICAgICpQMDA2MDAwKi |
+|                                     | kgZWNobyAgIkFkZGluZyBQZXJ0aCBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1zaCBjcmVhdGUg |
+|                                     | c3lzIG1hbmFnZW1lbnQtcm91dGUgbWFub0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41Mi4xMzAuMC8yNCB9CiAgICAgICAgICAgIC |
+|                                     | B0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjIuMC8yNCB9CiAg |
+|                                     | ICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMz |
+|                                     | MuMjA4LjI2LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ05OIHsgZ2F0ZXdheSAke01HTVRfR0FURVdB |
+|                                     | WX0gbmV0d29yayAxMC4zMy4xNi4yNC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wTk4geyBnYXRld2F5IC |
+|                                     | R7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wRUsg |
+|                                     | eyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5My4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzeXNsb2cgeyByZW |
+|                                     | 1vdGUtc2VydmVycyBhZGQgeyByZW1vdGVzeXNsb2dFSyB7IGhvc3QgMTAuMzMuMjA4LjI2IH0gfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25t |
+|                                     | cCBzeXMtbG9jYXRpb24gIk5GViBQcm9kdWN0aW9uIFBIIgogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgeyBhbGxvd2VkLWFkZHJlc3NlcyBhZG |
+|                                     | QgeyAxMC4zMy4xLjAvMjU1LjI1NS4yNTUuMCAxMC4zMy4xOTMuMC8yNTUuMjU1LjI1NS4wIDEwLjUyLjIuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjUyLjEzMC4z |
+|                                     | NC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMi4wLzI1NS4yNTUuMjU1LjAgMTAuMzMuMTk0LjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4wLjEwLzI1NS4yNTUuMj |
+|                                     | U1LjI1NSAxMC4zMy4xOTIuMTAvMjU1LjI1NS4yNTUuMjU1IH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMz |
+|                                     | XzBfMTBfMSB7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBob3N0IDEwLjMzLjEuMjAgbmV0d29yayBtZ210IHByaXZhY3ktcG |
+|                                     | Fzc3dvcmQgJ3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbCBhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lv |
+|                                     | biAzIH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMzXzE5Ml8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkck |
+|                                     | BhRCEnIGF1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMSBuZXR3b3JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJv |
+|                                     | dG9jb2wgYWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgIDs7CiAgICAgICpQMD |
+|                                     | A1NTE1KikgZWNobyAgIkFkZGluZyBBZGVsYWlkZSBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1z |
+|                                     | aCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgbWFub0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41Mi4xMzAuMC8yNCB9CiAgIC |
+|                                     | AgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjIu |
+|                                     | MC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldH |
+|                                     | dvcmsgMTAuMzMuMjA4LjI2LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ05OIHsgZ2F0ZXdheSAke01H |
+|                                     | TVRfR0FURVdBWX0gbmV0d29yayAxMC4zMy4xNi4yNC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wTk4gey |
+|                                     | BnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0 |
+|                                     | ZSBzbm1wRUsgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5My4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzeX |
+|                                     | Nsb2cgeyByZW1vdGUtc2VydmVycyBhZGQgeyByZW1vdGVzeXNsb2dOTiB7IGhvc3QgMTAuMzMuMTYuMjQgfSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5 |
+|                                     | IHN5cyBzbm1wIHN5cy1sb2NhdGlvbiAiTkZWIFByb2R1Y3Rpb24gQUUiCiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB7IGFsbG93ZWQtYWRkcm |
+|                                     | Vzc2VzIGFkZCB7IDEwLjMzLjEuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5My4wLzI1NS4yNTUuMjU1LjAgMTAuNTIuMi4zNC8yNTUuMjU1LjI1NS4yNTUgMTAu |
+|                                     | NTIuMTMwLjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4yLjAvMjU1LjI1NS4yNTUuMCAxMC4zMy4xOTQuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjAuMTAvMj |
+|                                     | U1LjI1NS4yNTUuMjU1IDEwLjMzLjE5Mi4xMC8yNTUuMjU1LjI1NS4yNTUgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB0cmFwcyBhZGQg |
+|                                     | eyBpMTBfMzNfMF8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIGF1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMCBuZXR3b3JrIG1nbXQgcH |
+|                                     | JpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wgYWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5N |
+|                                     | UyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB0cmFwcyBhZGQgeyBpMTBfMzNfMTkyXzEwXzEgeyBhdXRoLXBhc3N3b3 |
+|                                     | JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4xLjIxIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJp |
+|                                     | dmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgOzsKIC |
+|                                     | AgICAgKlAwMDMxMDAqKSBlY2hvICAiQWRkaW5nIE1vdW50IFdhdmVybGV5IGNvbmZpZ3VyYXRpb24iID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAg |
+|                                     | ICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vRUsgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLj |
+|                                     | EzMC4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG1hbm9OTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5l |
+|                                     | dHdvcmsgMTAuNTIuMi4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ0VLIHsgZ2F0ZXdheSAke01HTV |
+|                                     | RfR0FURVdBWX0gbmV0d29yayAxMC4zMy4yMDguMjYvMzIgfQogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTk4g |
+|                                     | eyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE2LjI0LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LX |
+|                                     | JvdXRlIHNubXBOTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMS4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBt |
+|                                     | YW5hZ2VtZW50LXJvdXRlIHNubXBFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMTkzLjAvMjQgfQogICAgICAgICAgICAgdG1zaC |
+|                                     | Btb2RpZnkgc3lzIHN5c2xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90ZXN5c2xvZ05OIHsgaG9zdCAxMC4zMy4xNi4yNCB9IH0gfQogICAgICAgICAg |
+|                                     | ICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgc3lzLWxvY2F0aW9uICJORlYgUHJvZHVjdGlvbiBNWSIKICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIH |
+|                                     | sgYWxsb3dlZC1hZGRyZXNzZXMgYWRkIHsgMTAuMzMuMS4wLzI1NS4yNTUuMjU1LjAgMTAuMzMuMTkzLjAvMjU1LjI1NS4yNTUuMCAxMC41Mi4yLjM0LzI1NS4y |
+|                                     | NTUuMjU1LjI1NSAxMC41Mi4xMzAuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjIuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5NC4zNC8yNTUuMjU1LjI1NS4yNT |
+|                                     | UgMTAuMzMuMC4xMC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMTkyLjEwLzI1NS4yNTUuMjU1LjI1NSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBz |
+|                                     | bm1wIHRyYXBzIGFkZCB7IGkxMF8zM18wXzEwXzEgeyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4xLjIwIG |
+|                                     | 5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHNl |
+|                                     | Y3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF8zM18xOTJfMTBfMS |
+|                                     | B7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBob3N0IDEwLjMzLjEuMjEgbmV0d29yayBtZ210IHByaXZhY3ktcGFzc3dvcmQg |
+|                                     | J3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbCBhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lvbiAzIH0gfQ |
+|                                     | ogICAgICAgICA7OwogICAgICAqKSBlY2hvICJObyBNYXRjaCBGb3VuZC4gRGVmYXVsdGluZyB0byBBZGRpbmcgTW9kZWwgY29uZmlndXJhdGlvbiIgPj4gL3Zh |
+|                                     | ci9sb2cvY3VzdG9tLWNvbmZpZy5sb2cKICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG1hbm9NTCB7IGdhdGV3YXkgJHtNR0 |
+|                                     | 1UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNTkuMTMwLjAvMjQgfQogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTUwg |
+|                                     | eyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjQxLjE2LjE0OC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC |
+|                                     | 1yb3V0ZSBzbm1wTUwgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjQxLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMg |
+|                                     | c3lzbG9nIHsgcmVtb3RlLXNlcnZlcnMgYWRkIHsgcmVtb3Rlc3lzbG9nTUwgeyBob3N0IDEwLjQxLjE2LjE0OCB9IH0gfQogICAgICAgICAgICAgdG1zaCBtb2 |
+|                                     | RpZnkgc3lzIHNubXAgeyBhbGxvd2VkLWFkZHJlc3NlcyBhZGQgeyAxMC40MS4xLjAvMjU1LjI1NS4yNTUuMCB9IHN5cy1sb2NhdGlvbiAiTkZWIE1vZGVsIiB0 |
+|                                     | cmFwcyBhZGQgeyBpMTBfNDFfMV8yMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIGF1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuNDEuMS4yMCBuZXR3b3 |
+|                                     | JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wgYWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0 |
+|                                     | eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9IH0KICAgICAgICAgOzsKICAgICAgZXNhYwoKICAgICAgIyMjIyMgRjUgZW5oYW5jZW1lbnRzICMjIyMjCiAgICAgIG |
+|                                     | VjaG8gIkFkZCBGNSBlbmhhbmNlbWVudHMiID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgIHRtc2ggbW9kaWZ5IHN5cyBodHRwZCB7IHJlZGly |
+|                                     | ZWN0LWh0dHAtdG8taHR0cHMgZW5hYmxlZCB9CiAgICAgIHRtc2ggbW9kaWZ5IHN5cyBkYiB1aS5zeXN0ZW0ucHJlZmVyZW5jZXMucmVjb3Jkc3BlcnNjcmVlbi |
+|                                     | B7IHZhbHVlICIxMDAiIH0KICAgICAgdG1zaCBtb2RpZnkgc3lzIGRiIHVpLnN5c3RlbS5wcmVmZXJlbmNlcy5hZHZhbmNlZHNlbGVjdGlvbiB7IHZhbHVlICJh |
+|                                     | ZHZhbmNlZCIgfQoKICAgICAgIyMgbWVyZ2UgZnVuY3Rpb24gc3BlY2lmaWMgY3VzdG9tIGNvbmZpZyBpbnRvIGV4aXN0aW5nIGNvbmZpZ3VyYXRpb24KICAgIC |
+|                                     | AgZWNobyAiQWRkIEN1c3RvbSBDb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICB0bXNoIGxvYWQgL3N5cyBjb25maWcg |
+|                                     | bWVyZ2UgZmlsZSAvY29uZmlnL2Nsb3VkL2V4dHJhX2NvbmZpZy50bW9zCgogICAgICB0bXNoIHNhdmUgL3N5cyBjb25maWcKCiAgICAgIGVjaG8gIk9TUyBDb2 |
+|                                     | 5maWd1cmF0aW9uIExvYWQgQ29tcGxldGUiID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCgogICAgICAjIyBkaXNhYmxlIFRMUyAxLjAKICAgICAgdG1z |
+|                                     | aCBtb2RpZnkgc3lzIGh0dHBkIHNzbC1wcm90b2NvbCAiVExTdjEuMSBUTFN2MS4yIgogICAgICB0bXNoIHNhdmUgL3N5cyBjb25maWcKCiAgICAgICMjIGRpc2 |
+|                                     | FibGUgTFJPIC0gcmVxdWlyZWQgZm9yIFNSSU9WCiAgICAgICB0bXNoIG1vZGlmeSBzeXMgZGIgdG0udGNwbGFyZ2VyZWNlaXZlb2ZmbG9hZCB2YWx1ZSBkaXNh |
+|                                     | YmxlCiAgICAgICBiaWdzdGFydCByZXN0YXJ0IHRtbQoKICAgICAgIyMjIyMgQkVHSU4gSElHSCBMRVZFTCBDT05GSUcgIyMjIyMjIyMKICAgICAgIyBDYWxsIG |
+|                                     | 9yIGV4ZWN1dGUgYWRkaXRpb25hbCBmdW5jdGlvbmFsIGxldmVsIGNvbmZpZy4KICAgICAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMK |
+|                                     | CgojIE5PVEU6IENvbW1hbmRzIG11c3QgYmUgbm9uIGJsb2NraW5nIHNvIGxvbmcgcnVubmluZyBjb21tYW5kcyAocG9sbGluZy93YWl0aW5nIGZvciBtY3BkKS |
+|                                     | BzaG91bGQgYmUgc2VudCB0byB0aGUgYmFja2dyb3VuZApydW5jbWQ6CiAtIC9jb25maWcvY2xvdWQvb25ib2FyZC5zaCAmCg==                         |
+| OS-EXT-STS:power_state              | Running                                                                                                                    |
+| OS-EXT-STS:task_state               | None                                                                                                                       |
+| OS-EXT-STS:vm_state                 | active                                                                                                                     |
+| OS-SRV-USG:launched_at              | 2020-11-11T00:43:09.000000                                                                                                 |
+| OS-SRV-USG:terminated_at            | None                                                                                                                       |
+| accessIPv4                          |                                                                                                                            |
+| accessIPv6                          |                                                                                                                            |
+| addresses                           | DNS163VM002400-gn-net=101.119.241.254; OAM-S-4M002400-NET-002=10.59.17.31; DNS163VM002400-sig-net=10.247.255.254           |
+| config_drive                        | True                                                                                                                       |
+| created                             | 2020-11-11T00:42:54Z                                                                                                       |
+| description                         | DNS163VM002400                                                                                                             |
+| flavor                              | disk='149', ephemeral='0', extra_specs='{u'hw:cpu_policy': u'dedicated', u'hw:mem_page_size': u'1048576',                  |
+|                                     | u'hw:watchdog_action': u'reset'}', original_name='CM-F5_BIGIP_8C16M149D_IPNCOR', ram='16384', swap='0', vcpus='8'          |
+| hostId                              | 598c1ae9723a86879859980c3a687780dfa7ca2cd017ff8d31d4f21a                                                                   |
+| host_status                         | UP                                                                                                                         |
+| id                                  | ab3f5877-3c3f-4704-abc1-b2692c1ca1ba                                                                                       |
+| image                               | F5-BIGIP-13.1.3.4-0.0.5 (46ab2f64-bbf9-4c21-bb9c-fe4d137ccedc)                                                             |
+| key_name                            | m_ans_admin_IPNCOR                                                                                                         |
+| locked                              | False                                                                                                                      |
+| name                                | DNS163VM002400                                                                                                             |
+| progress                            | 0                                                                                                                          |
+| project_id                          | 534b54cbade2489785a4f691bb394ef3                                                                                           |
+| properties                          | group='f5_bigip', ha-policy='unmanaged', vnf_descriptor='DNS163VM002400', vnf_env='env_model.yaml',                        |
+|                                     | vnf_name='DNS163VM002400'                                                                                                  |
+| security_groups                     | name='OM_Default_IPNCOR'                                                                                                   |
+| status                              | ACTIVE                                                                                                                     |
+| tags                                | []                                                                                                                         |
+| updated                             | 2022-06-23T08:37:44Z                                                                                                       |
+| user_id                             | 7444d6df00284468a4678b084b749cf2                                                                                           |
+| volumes_attached                    |                                                                                                                            |
++-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova list --all-tenants --fields name,host,status,updated | grep -i DNS
+| ab3f5877-3c3f-4704-abc1-b2692c1ca1ba | DNS163VM002400                                 | compute-2400-702200924.domain.tld | ACTIVE  | 2022-06-23T08:37:44Z |
+| d03df442-94c0-4d0a-9516-a984cdcbae58 | DNS181VM002400                                 | compute-2400-700800920.domain.tld | ACTIVE  | 2023-11-02T16:47:40Z |
+| 67853a20-264b-40a7-8cfa-ce074d28ad63 | DNS182VM002400                                 | compute-2400-702201006.domain.tld | SHUTOFF | 2025-01-25T06:24:47Z |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# date
+Tue Feb  4 20:11:45 AEDT 2025
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova stop ab3f5877-3c3f-4704-abc1-b2692c1ca1ba
+Request to stop server ab3f5877-3c3f-4704-abc1-b2692c1ca1ba has been accepted.
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova list --all-tenants --fields name,host,status,updated | grep -i DNS
+| ab3f5877-3c3f-4704-abc1-b2692c1ca1ba | DNS163VM002400                                 | compute-2400-702200924.domain.tld | ACTIVE  | 2025-02-04T09:13:04Z |
+| d03df442-94c0-4d0a-9516-a984cdcbae58 | DNS181VM002400                                 | compute-2400-700800920.domain.tld | ACTIVE  | 2023-11-02T16:47:40Z |
+| 67853a20-264b-40a7-8cfa-ce074d28ad63 | DNS182VM002400                                 | compute-2400-702201006.domain.tld | SHUTOFF | 2025-01-25T06:24:47Z |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova list --all-tenants --fields name,host,status,updated | grep -i DNS
+| ab3f5877-3c3f-4704-abc1-b2692c1ca1ba | DNS163VM002400                                 | compute-2400-702200924.domain.tld | SHUTOFF | 2025-02-04T09:13:24Z |
+| d03df442-94c0-4d0a-9516-a984cdcbae58 | DNS181VM002400                                 | compute-2400-700800920.domain.tld | ACTIVE  | 2023-11-02T16:47:40Z |
+| 67853a20-264b-40a7-8cfa-ce074d28ad63 | DNS182VM002400                                 | compute-2400-702201006.domain.tld | SHUTOFF | 2025-01-25T06:24:47Z |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack server show ab3f5877-3c3f-4704-abc1-b2692c1ca1ba --fit
++-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+| Field                               | Value                                                                                                                      |
++-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+| OS-DCF:diskConfig                   | MANUAL                                                                                                                     |
+| OS-EXT-AZ:availability_zone         | HCVAZGEN001M002400                                                                                                         |
+| OS-EXT-SRV-ATTR:host                | compute-2400-702200924.domain.tld                                                                                          |
+| OS-EXT-SRV-ATTR:hostname            | dns163vm002400                                                                                                             |
+| OS-EXT-SRV-ATTR:hypervisor_hostname | compute-2400-702200924.domain.tld                                                                                          |
+| OS-EXT-SRV-ATTR:instance_name       | instance-00000213                                                                                                          |
+| OS-EXT-SRV-ATTR:kernel_id           |                                                                                                                            |
+| OS-EXT-SRV-ATTR:launch_index        | 0                                                                                                                          |
+| OS-EXT-SRV-ATTR:ramdisk_id          |                                                                                                                            |
+| OS-EXT-SRV-ATTR:reservation_id      | r-l5lyy3h7                                                                                                                 |
+| OS-EXT-SRV-ATTR:root_device_name    | /dev/vda                                                                                                                   |
+| OS-EXT-SRV-ATTR:user_data           | I2Nsb3VkLWNvbmZpZwoKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIyMgICAgICAgICAgQklHLUlQIENMT1VELUNPTk |
+|                                     | ZJRyAgICAgICAgICAgIyMjCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKCndyaXRlX2ZpbGVzOgoKICAtIHBhdGg6IC9j |
+|                                     | b25maWcvY2xvdWQvb25ib2FyZC5zaAogICAgcGVybWlzc2lvbnM6IDA3NTUKICAgIG93bmVyOiByb290OnJvb3QKICAgIGNvbnRlbnQ6IHwKICAgICAgIyEvYm |
+|                                     | luL2Jhc2gKCiAgICAgICMgT1BFTlNUQUNLIE5PVEVTOiB0aGVzZSBpbWFnZXMgc3RpbGwgaGF2ZSBkZWZhdWx0IGFkbWluL3Jvb3QgYWNjb3VudHMKCiAgICAg |
+|                                     | ICMgTG9hZCBJbnB1dCBQYXJhbWV0ZXJzCiAgICAgIC4gL2NvbmZpZy9jbG91ZC9vbmJvYXJkX2NvbmZpZ192YXJzCgogICAgICAjIERvd25sb2FkIE9uYm9hcm |
+|                                     | RpbmcgTGlicy4KICAgICAgIyBDb3VsZCBiZSBwcmUtcGFja2FnZWQgb3IgaG9zdGVkIGludGVybmFsbHkKICAgICAgY3VybCAtbyAvY29uZmlnL2Nsb3VkL2Y1 |
+|                                     | LWNsb3VkLWxpYnMudGFyLmd6IC0tc2lsZW50IC0tZmFpbCAtLXJldHJ5IDIwIC1rIC1MICRGNV9DTE9VRF9MSUJTX1VSTAogICAgICB0YXIgeHZ6ZiAvY29uZm |
+|                                     | lnL2Nsb3VkL2Y1LWNsb3VkLWxpYnMudGFyLmd6IC1DIC9jb25maWcvY2xvdWQvCiAgICAgIG12IC9jb25maWcvY2xvdWQvRjVOZXR3b3Jrcy1mNS1jbG91ZC1s |
+|                                     | aWJzLSogL2NvbmZpZy9jbG91ZC9mNS1jbG91ZC1saWJzCiAgICAgIGNkIC9jb25maWcvY2xvdWQvZjUtY2xvdWQtbGlicwoKICAgICAgSUZTPScgJyByZWFkIC |
+|                                     | 1yYSBBRERSIDw8PCAiJHtCSUdJUF9QUk9WSVNJT059IgogICAgICBmb3IgaSBpbiAiJHtBRERSW0BdfSI7IGRvCiAgICAgICAgcHJvdl9tb2Q9IiR7cHJvdl9t |
+|                                     | b2R9IC0tbW9kdWxlICR7aX0gIgogICAgICBkb25lCgogICAgICAjIExpY2Vuc2UgLyBQcm92aXNpb24KICAgICAgZjUtcmVzdC1ub2RlIC9jb25maWcvY2xvdW |
+|                                     | QvZjUtY2xvdWQtbGlicy9zY3JpcHRzL29uYm9hcmQuanMgXAogICAgICAtbyAvdmFyL2xvZy9vbmJvYXJkLmxvZyBcCiAgICAgIC0tbm8tcmVib290IFwKICAg |
+|                                     | ICAgLS1ob3N0IGxvY2FsaG9zdCBcCiAgICAgIC0tdXNlciBhZG1pbiBcCiAgICAgIC0tcGFzc3dvcmQgJHtCSUdJUF9BRE1JTl9QQVNTV09SRH0gXAogICAgIC |
+|                                     | AtLXNldC1yb290LXBhc3N3b3JkICJvbGQ6ZGVmYXVsdCxuZXc6JHtCSUdJUF9ST09UX1BBU1NXT1JEfSIgXAogICAgICAtLXVwZGF0ZS11c2VyICJ1c2VyOiR7 |
+|                                     | QklHSVBfQURNSU5fVVNFUk5BTUV9LHBhc3N3b3JkOiR7QklHSVBfQURNSU5fUEFTU1dPUkR9LHJvbGU6YWRtaW4sc2hlbGw6dG1zaCIgXAogICAgICAtLWhvc3 |
+|                                     | RuYW1lICR7SE9TVE5BTUV9LnZvZGFmb25lLmNvbS5hdSBcCiAgICAgIC0tZ2xvYmFsLXNldHRpbmcgaG9zdG5hbWU6JHtIT1NUTkFNRX0gXAogICAgICAtLW50 |
+|                                     | cCAxMC4xMDUuMTM4LjQgXAogICAgICAtLW50cCAxMC4xMDUuMTM4LjM2IFwKICAgICAgLS1udHAgMTAuMTA1LjEzOC42OCBcCiAgICAgIC0tdHogQXVzdHJhbG |
+|                                     | lhL1N5ZG5leSBcCiAgICAgIC0tZG5zIDEwLjM2LjE2LjE2IFwKICAgICAgLS1kbnMgMTAuNDkuMTYuMTYgXAogICAgICAtLWxpY2Vuc2UtcG9vbCBcCiAgICAg |
+|                                     | IC0tYmlnLWlxLWhvc3QgJHtCSUdJUV9IT1NUfSBcCiAgICAgIC0tYmlnLWlxLXVzZXIgJHtCSUdJUV9VU0VSfSBcCiAgICAgIC0tYmlnLWlxLXBhc3N3b3JkIC |
+|                                     | R7QklHSVFfUEFTU1dPUkR9IFwKICAgICAgLS1saWNlbnNlLXBvb2wtbmFtZSAke0JJR0lRX0xJQ0VOU0VfUE9PTF9OQU1FfSBcCiAgICAgIC0tY2xvdWQga3Zt |
+|                                     | IFwKICAgICAgLS1iaWctaXAtbWdtdC1hZGRyZXNzICR7TUdNVF9BRERSRVNTfSBcCiAgICAgICR7cHJvdl9tb2R9CgogICAgICAjIyMjIyBHZW5lcmF0ZSBuZX |
+|                                     | cgZGV2aWNlIENlcnRpZmljYXRlICMjIyMjCiAgICAgIG9wZW5zc2wgcmVxIC14NTA5IC1ub2RlcyAtZGF5cyAzNjUwIC1uZXdrZXkgcnNhOjIwNDggLWtleW91 |
+|                                     | dCAvY29uZmlnL2h0dHBkL2NvbmYvc3NsLmtleS9zZXJ2ZXIua2V5IC1vdXQgL2NvbmZpZy9odHRwZC9jb25mL3NzbC5jcnQvc2VydmVyLmNydCAtc3ViaiAvQz |
+|                                     | 1BVS9TVD1OU1cvTD1TeWRuZXkvTz1Wb2RhZm9uZS9PVT1JUE4vQ049JHtIT1NUTkFNRX0KCiAgICAgICMgT1BFTlNUQUNLIE5PVEVTOiB0aGVzZSBpbWFnZXMg |
+|                                     | c3RpbGwgaGF2ZSBkZWZhdWx0IGFkbWluL3Jvb3QgYWNjb3VudHMKCiAgICAgICMjIyMjIEJFR0lOIE5FVFdPUksgIyMjIyMjIyMKICAgICAgIyBOT1RFOiBtdH |
+|                                     | UgJiBwb3J0IGFsbG93IGxpc3QgdG8gYmUgYWRkZWQgdG8gbmV0d29yay5qcwogICAgICAjIE5PVEU6IG5ldHdvcmsuanMgd2FzIG1vZGlmaWVkIHRvIHNldCBu |
+|                                     | ZXcgc2VsZi1pcHMgd2l0aCBhIGRlZmF1bHQgcG9ydCBsb2NrZG93biA9ICJub25lIiB3aGVuIGxlZnQgYmxhbmsuCiAgICAgIGY1LXJlc3Qtbm9kZSAvY29uZm |
+|                                     | lnL2Nsb3VkL2Y1LWNsb3VkLWxpYnMvc2NyaXB0cy9uZXR3b3JrLmpzIFwKICAgICAgLW8gL3Zhci9sb2cvb25ib2FyZC1uZXR3b3JrLmxvZyBcCiAgICAgIC0t |
+|                                     | aG9zdCAke01HTVRfQUREUkVTU30gXAogICAgICAtLXVzZXIgJHtCSUdJUF9BRE1JTl9VU0VSTkFNRX0gXAogICAgICAtLXBhc3N3b3JkICR7QklHSVBfQURNSU |
+|                                     | 5fUEFTU1dPUkR9IFwKICAgICAgLS12bGFuICJuYW1lOiR7TkVUV09SS18xX05BTUV9LCBuaWM6MS4xIiBcCiAgICAgIC0tc2VsZi1pcCAibmFtZToke05FVFdP |
+|                                     | UktfMV9OQU1FfV9zZWxmLCBhZGRyZXNzOiR7TkVUV09SS18xX0FERFJFU1N9LyR7TkVUV09SS18xX1BSRUZJWH0sIHZsYW46JHtORVRXT1JLXzFfTkFNRX0iIF |
+|                                     | wKICAgICAgLS12bGFuICJuYW1lOiR7TkVUV09SS18yX05BTUV9LCBuaWM6MS4yIiBcCiAgICAgIC0tc2VsZi1pcCAibmFtZToke05FVFdPUktfMl9OQU1FfV9z |
+|                                     | ZWxmLCBhZGRyZXNzOiR7TkVUV09SS18yX0FERFJFU1N9LyR7TkVUV09SS18yX1BSRUZJWH0sIHZsYW46JHtORVRXT1JLXzJfTkFNRX0iIFwKCiAgICAgICMgUl |
+|                                     | VOIFVTRVIgQ1VTVE9NIENPTU1BTkRTCiAgICAgIGY1LXJlc3Qtbm9kZSAvY29uZmlnL2Nsb3VkL2Y1LWNsb3VkLWxpYnMvc2NyaXB0cy9ydW5TY3JpcHQuanMg |
+|                                     | XAogICAgICAtLWZpbGUgL2NvbmZpZy9jbG91ZC9jdXN0b20tY29uZmlnLnNoIFwKICAgICAgLS1jd2QgL2NvbmZpZy9jbG91ZCBcCiAgICAgIC1vIC92YXIvbG |
+|                                     | 9nL2N1c3RvbS1jb25maWcubG9nIFwKCgojIyMjIyMjIyMjIyMgQkVHSU4gVVNFUiBDVVNUT01JWkUgU0VDVElPTiBJTiBXUklURV9GSUxFUzogIyMjIyMjIyMj |
+|                                     | IyMjCgogIC0gcGF0aDogL2NvbmZpZy9jbG91ZC9vbmJvYXJkX2NvbmZpZ192YXJzCiAgICBwZXJtaXNzaW9uczogMDc1NQogICAgb3duZXI6IHJvb3Q6cm9vdA |
+|                                     | ogICAgY29udGVudDogfAogICAgICAjIS9iaW4vYmFzaAoKICAgICAgSE9TVE5BTUU9RE5TMTYzVk0wMDI0MDAKICAgICAgQklHSVBfUFJPVklTSU9OPSJsdG06 |
+|                                     | bm9taW5hbCBndG06bm9taW5hbCBhZm06bm9taW5hbCBhdnI6bm9taW5hbCIKCiAgICAgIEJJR0lQX0FETUlOX1VTRVJOQU1FPWFkbWluCiAgICAgIEJJR0lQX0 |
+|                                     | FETUlOX1BBU1NXT1JEPSJlODZiWFRAMSIKICAgICAgQklHSVBfUk9PVF9QQVNTV09SRD0iZTg2YlhUQDEiCgogICAgICBNR01UX0FERFJFU1M9MTAuNTkuMTcu |
+|                                     | MzEKICAgICAgTUdNVF9DSURSX0JMT0NLPTEwLjU5LjE3LjAvMjQKICAgICAgTUdNVF9ORVQ9JHtNR01UX0NJRFJfQkxPQ0slLyp9CiAgICAgIE1HTVRfUFJFRk |
+|                                     | lYPSR7TUdNVF9DSURSX0JMT0NLIyovfQogICAgICBNR01UX0dBVEVXQVk9MTAuNTkuMTcuMQogICAgICBNR01UX01UVT0xNDYwCgogICAgICBORVRXT1JLXzFf |
+|                                     | TkFNRT1zaWctdnJmCiAgICAgIE5FVFdPUktfMV9BRERSRVNTPTEwLjI0Ny4yNTUuMjU0CiAgICAgIE5FVFdPUktfMV9DSURSX0JMT0NLPTEwLjI0Ny4yNTUuMj |
+|                                     | I0LzI3CiAgICAgIE5FVFdPUktfMV9ORVQ9JHtORVRXT1JLXzFfQ0lEUl9CTE9DSyUvKn0KICAgICAgTkVUV09SS18xX1BSRUZJWD0ke05FVFdPUktfMV9DSURS |
+|                                     | X0JMT0NLIyovfQogICAgICBORVRXT1JLXzFfTVRVPTE1MDAKCiAgICAgIE5FVFdPUktfMl9OQU1FPWduLXZyZgogICAgICBORVRXT1JLXzJfQUREUkVTUz0xMD |
+|                                     | EuMTE5LjI0MS4yNTQKICAgICAgTkVUV09SS18yX0NJRFJfQkxPQ0s9MTAxLjExOS4yNDEuMjQ4LzI5CiAgICAgIE5FVFdPUktfMl9ORVQ9JHtORVRXT1JLXzJf |
+|                                     | Q0lEUl9CTE9DSyUvKn0KICAgICAgTkVUV09SS18yX1BSRUZJWD0ke05FVFdPUktfMl9DSURSX0JMT0NLIyovfQogICAgICBORVRXT1JLXzJfTVRVPTE1MDAKCi |
+|                                     | AgICAgIEJJR0lRX0hPU1Q9MTAuNTkuMTMwLjMxCiAgICAgIEJJR0lRX1VTRVI9TGljZW5zZU1lCiAgICAgIEJJR0lRX1BBU1NXT1JEPSJERDlIKHNxUSIKICAg |
+|                                     | ICAgQklHSVFfTElDRU5TRV9QT09MX05BTUU9UGVycGV0dWFsLUxpY2Vuc2VzCiAgICAgIEJJR0lQX01HTVRfQUREUkVTUz0xMC41OS4xNy4zMQoKICAgICAgRj |
+|                                     | VfQ0xPVURfTElCU19VUkw9aHR0cDovLzEwLjU5LjI0LjEwL3JlcG8vRjUvZjUtY2xvdWQtbGlicy50YXIuZ3oKCiAgLSBwYXRoOiAvY29uZmlnL3NzaC92aGFf |
+|                                     | YmFubmVyCiAgICBjb250ZW50OiB8CiAgICAgICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi |
+|                                     | oqKioqKioqKioqKioqKioqKioqKioKICAgICAgKiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg |
+|                                     | ICAgICAgICAgICAgICAgICAgICAgKgogICAgICAqICAgICAgICBJVCBJUyBBTiBPRkZFTlNFIFRPIENPTlRJTlVFIEFDQ0VTUyBXSVRIT1VUIFBST1BFUiBBVV |
+|                                     | RIT1JJU0FUSU9OICAgICAgICAgICAqCiAgICAgICogICAgICAgICAgICAgICAgICAgICBGUk9NIFZPREFGT05FIEhVVENISVNPTiBBVVNUUkFMSUEgICAgICAg |
+|                                     | ICAgICAgICAgICAgICAgICAgICAgICoKICAgICAgKiAgICAgVkhBIG1vbml0b3JzIGFsbCBzeXN0ZW1zIGFuZCB3b3JrcGxhY2VzIGZvciB1bmF1dGhvcmlzZW |
+|                                     | QgYWNjZXNzLCBpbXByb3BlciAgICAgKgogICAgICAqICAgICB1c2UsIHVzZXIgc2FmZXR5LCBhbmQgdGhlIHNlY3VyaXR5IG9mIHBoeXNpY2FsIGFuZCBpbnRl |
+|                                     | bGxlY3R1YWwgcHJvcGVydHkuICAgICAqCiAgICAgICogICAgICAgICAgICBBdXRob3Jpc2VkIGluZGl2aWR1YWxzIG1heSBjb250aW51b3VzbHkgbW9uaXRvci |
+|                                     | B0aGVzZSAgICAgICAgICAgICAgICAgICoKICAgICAgKiAgICAgICAgIHN5c3RlbXMgYnkgZWxlY3Ryb25pYyBvciBtYW51YWwgcmV2aWV3IG9mIGFjdGl2aXR5 |
+|                                     | IGFuZCBsb2dzLiAgICAgICAgICAgICAgKgogICAgICAqICAgICAgICAgICBCeSB1c2luZyB0aGlzIHN5c3RlbSwgeW91IGFja25vd2xlZGdlIHRoYXQgeW91IH |
+|                                     | VuZGVyc3RhbmQgICAgICAgICAgICAgICAqCiAgICAgICogICAgICAgICAgICAgICBhbmQgYWNjZXB0IFZIQSdzIHNlY3VyaXR5IGFuZCB3b3JrcGxhY2UgcG9s |
+|                                     | aWNpZXMuICAgICAgICAgICAgICAgICAgICoKICAgICAgKiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC |
+|                                     | AgICAgICAgICAgICAgICAgICAgICAgICAgKgogICAgICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq |
+|                                     | KioqKioqKioqKioqKioqKioqKioqKioqKioqCgogIC0gcGF0aDogL2NvbmZpZy9jbG91ZC9leHRyYV9jb25maWcudG1vcwogICAgY29udGVudDogfAogICAgIC |
+|                                     | AKCiAgLSBwYXRoOiAvY29uZmlnL2Nsb3VkL2N1c3RvbS1jb25maWcuc2gKICAgIHBlcm1pc3Npb25zOiAwNzU1CiAgICBvd25lcjogcm9vdDpyb290CiAgICBj |
+|                                     | b250ZW50OiB8CiAgICAgICMhL2Jpbi9iYXNoCgogICAgICAjIyMjIyBMb2FkIElucHV0IFBhcmFtZXRlcnMgIyMjIyMKICAgICAgLiAvY29uZmlnL2Nsb3VkL2 |
+|                                     | 9uYm9hcmRfY29uZmlnX3ZhcnMKCiAgICAgICMjIyMjIEFkZCBPU1MgQ29uZmlndXJhdGlvbiAjIyMjIwogICAgICBlY2hvICJBZGQgT1NTIENvbmZpZ3VyYXRp |
+|                                     | b24iID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgICMjIyMjIEFERCBNR01UIFJPVVRFUyBGT1IgT1NTICMjIyMjIyMjCiAgICAgIHRtc2ggY3 |
+|                                     | JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG50cDEgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjEwNS4xMzguNC8zMiB9CiAgICAgIHRt |
+|                                     | c2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG50cDIgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjEwNS4xMzguMzYvMzIgfQogIC |
+|                                     | AgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBudHAzIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC4xMDUuMTM4LjY4LzMy |
+|                                     | IH0KCiAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIGRuczEgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjM2LjE2Lj |
+|                                     | E2LzMyIH0KICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgZG5zMiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNDku |
+|                                     | MTYuMTYvMzIgfQoKICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgaXNlMSB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMT |
+|                                     | AuMzMuOC40Ny8zMiB9CiAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIGlzZTIgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3Jr |
+|                                     | IDEwLjMzLjguNDgvMzIgfQogICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBpc2UzIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d2 |
+|                                     | 9yayAxMC4zMy4yMDQuNDcvMzIgfQogICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBpc2U0IHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0g |
+|                                     | bmV0d29yayAxMC4zMy4yMDQuNDgvMzIgfQoKICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgbm4tbmV0Y29vbCB7IGdhdGV3YXkgJHtNR0 |
+|                                     | 1UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMC4xMC8zMiB9CiAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIGVrLW5ldGNvb2wgeyBnYXRl |
+|                                     | d2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5Mi4xMC8zMiB9CiAgICAgIAogICAgICB0bXNoIHNhdmUgL3N5cyBjb25maWcKCgogICAgICB0bX |
+|                                     | NoIG1vZGlmeSBzeXMgc3NoZCBpbmNsdWRlICJCYW5uZXIgL2NvbmZpZy9zc2gvdmhhX2Jhbm5lciIKICAgICAgdG1zaCBtb2RpZnkgc3lzIHNzaGQgYmFubmVy |
+|                                     | IGVuYWJsZWQKICAgICAgdG1zaCBtb2RpZnkgc3lzIGdsb2JhbC1zZXR0aW5ncyB7IGd1aS1zZWN1cml0eS1iYW5uZXIgZW5hYmxlZCBndWktc2VjdXJpdHktYm |
+|                                     | FubmVyLXRleHQgIioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq |
+|                                     | KioqCiAgICAgIElUIElTIEFOIE9GRkVOU0UgVE8gQ09OVElOVUUgQUNDRVNTIFdJVEhPVVQgUFJPUEVSIEFVVEhPUklTQVRJT04gRlJPTSBWT0RBRk9ORSBIVV |
+|                                     | RDSElTT04gQVVTVFJBTElBCiAgICAgIFZIQSBtb25pdG9ycyBhbGwgc3lzdGVtcyBhbmQgd29ya3BsYWNlcyBmb3IgdW5hdXRob3Jpc2VkIGFjY2VzcywgaW1w |
+|                                     | cm9wZXIgdXNlLCB1c2VyIHNhZmV0eSwgYW5kIHRoZSBzZWN1cml0eSBvZiBwaHlzaWNhbCBhbmQgaW50ZWxsZWN0dWFsIHByb3BlcnR5LgogICAgICBBdXRob3 |
+|                                     | Jpc2VkIGluZGl2aWR1YWxzIG1heSBjb250aW51b3VzbHkgbW9uaXRvciB0aGVzZSBzeXN0ZW1zIGJ5IGVsZWN0cm9uaWMgb3IgbWFudWFsIHJldmlldyBvZiBh |
+|                                     | Y3Rpdml0eSBhbmQgbG9ncy4KICAgICAgQnkgdXNpbmcgdGhpcyBzeXN0ZW0sIHlvdSBhY2tub3dsZWRnZSB0aGF0IHlvdSB1bmRlcnN0YW5kIGFuZCBhY2NlcH |
+|                                     | QgVkhBJ3Mgc2VjdXJpdHkgYW5kIHdvcmtwbGFjZSBwb2xpY2llcy4KICAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq |
+|                                     | KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioiIH0KICAgICAgdG1zaCBtb2RpZnkgYXV0aCByZW1vdGUtcm9sZSByb2xlLWluZm8gYWRkIH |
+|                                     | sgREMxIHsgYXR0cmlidXRlICJGNS1MVE0tVXNlci1JbmZvLTE9REMxIiBjb25zb2xlICIlRjUtTFRNLVVzZXItQ29uc29sZSIgcm9sZSAiJUY1LUxUTS1Vc2Vy |
+|                                     | LVJvbGUiIHVzZXItcGFydGl0aW9uICIlRjUtTFRNLVVzZXItUGFydGl0aW9uIiBsaW5lLW9yZGVyIDEgfSB9CiAgICAgIHRtc2ggbW9kaWZ5IGF1dGggcmVtb3 |
+|                                     | RlLXJvbGUgcm9sZS1pbmZvIGFkZCB7IEFkbWluLUdwIHsgYXR0cmlidXRlICJwcml2LWx2bD0xNSIgY29uc29sZSAidG1zaCIgcm9sZSAiYWRtaW4iIHVzZXIt |
+|                                     | cGFydGl0aW9uICJBbGwiIGxpbmUtb3JkZXIgMiB9IH0KICAgICAgdG1zaCBtb2RpZnkgYXV0aCByZW1vdGUtcm9sZSByb2xlLWluZm8gYWRkIHsgR3Vlc3QtR3 |
+|                                     | AgeyBhdHRyaWJ1dGUgInByaXYtbHZsPTE0IiBjb25zb2xlICJ0bXNoIiByb2xlICJndWVzdCIgdXNlci1wYXJ0aXRpb24gIkFsbCIgbGluZS1vcmRlciAzIH0g |
+|                                     | fQogICAgICB0bXNoIG1vZGlmeSBhdXRoIHJlbW90ZS11c2VyIHsgZGVmYXVsdC1yb2xlIGd1ZXN0IHJlbW90ZS1jb25zb2xlLWFjY2VzcyB0bXNoIH0KCiAgIC |
+|                                     | AgIHRtc2ggY3JlYXRlIGF1dGggdGFjYWNzIHN5c3RlbS1hdXRoIHsgYXV0aGVudGljYXRpb24gdXNlLWFsbC1zZXJ2ZXJzIHByb3RvY29sIGxjcCBzZWNyZXQg |
+|                                     | Y2RuIHNlcnZlcnMgYWRkIHsgMTAuMzMuOC40NyAxMC4zMy44LjQ4IDEwLjMzLjIwNC40OCAxMC4zMy4yMDQuNDcgfSBzZXJ2aWNlIHBwcCB9CiAgICAgIHRtc2 |
+|                                     | ggbW9kaWZ5IGF1dGggc291cmNlIHsgdHlwZSB0YWNhY3MgfQoKICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgeyBjb21tdW5pdGllcyBkZWxldGUgeyBjb21t |
+|                                     | LXB1YmxpYyB7IH0gfSBhdXRoLXRyYXAgZW5hYmxlZCBzeXMtY29udGFjdCBlbnRlcnByaXNlaXBAdm9kYWZvbmUuY29tLmF1IHVzZXJzIGFkZCB7IGlOTVNfMS |
+|                                     | B7IGFjY2VzcyBybyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgb2lkLXN1YnNldCAuMSBwcml2YWN5LXBhc3N3b3JkICd2MGRy |
+|                                     | QGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHVzZXJuYW1lIE5NUyB9IH0gfQogICAgICB0bXNoIG1vZGlmeS |
+|                                     | BzeXMgc25tcCBpbmNsdWRlICJlbmdpbmVJRCAke0hPU1ROQU1FfSIKCiAgICAgICMjIyMjIFN0YXJ0IFNpdGUgc3BlY2lmYyBTTk1QIGFuZCBTeXNsb2cgY29u |
+|                                     | ZmlndXJhdGlvbiAjIyMjIyMKICAgICAgZWNobyAiU3RhcnRpbmcgc2l0ZS1zcGVjaWZpYyBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZm |
+|                                     | lnLmxvZwoKICAgICAgY2FzZSAke0hPU1ROQU1FfSBpbgogICAgICAqUDIyMjAwMSopICBlY2hvICJBZGRpbmcgRXJza2luZSBQYXJrIGNvbmZpZ3VyYXRpb24i |
+|                                     | ID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vRUsgeyBnYXRld2 |
+|                                     | F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjEzMC4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG1h |
+|                                     | bm9OTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNTIuMi4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW |
+|                                     | 50LXJvdXRlIHN5c2xvZ0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC4zMy4yMDguMjYvMzIgfQogICAgICAgICAgICAgdG1zaCBjcmVh |
+|                                     | dGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE2LjI0LzMyIH0KICAgICAgIC |
+|                                     | AgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBOTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMS4wLzI0 |
+|                                     | IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMT |
+|                                     | AuMzMuMTkzLjAvMjQgfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHN5c2xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90ZXN5c2xvZ0VLIHsg |
+|                                     | aG9zdCAxMC4zMy4yMDguMjYgfSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHN5cy1sb2NhdGlvbiAiTkZWIFByb2R1Y3Rpb24gRUsiCi |
+|                                     | AgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB7IGFsbG93ZWQtYWRkcmVzc2VzIGFkZCB7IDEwLjMzLjEuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5 |
+|                                     | My4wLzI1NS4yNTUuMjU1LjAgMTAuNTIuMi4zNC8yNTUuMjU1LjI1NS4yNTUgMTAuNTIuMTMwLjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4yLjAvMjU1LjI1NS |
+|                                     | 4yNTUuMCAxMC4zMy4xOTQuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjAuMTAvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjE5Mi4xMC8yNTUuMjU1LjI1NS4yNTUg |
+|                                     | fSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB0cmFwcyBhZGQgeyBpMTBfMzNfMF8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIG |
+|                                     | F1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMCBuZXR3b3JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wg |
+|                                     | YWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeX |
+|                                     | Mgc25tcCB0cmFwcyBhZGQgeyBpMTBfMzNfMTkyXzEwXzEgeyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4x |
+|                                     | LjIxIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YW |
+|                                     | N5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgIDs7CiAgICAgICpQMDAyNDAwKikgIGVjaG8gICJBZGRpbmcgTmV3aW5ndG9uIGNv |
+|                                     | bmZpZ3VyYXRpb24iID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW |
+|                                     | 5vRUsgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjEzMC4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2Vt |
+|                                     | ZW50LXJvdXRlIG1hbm9OTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNTIuMi4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIH |
+|                                     | N5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC4zMy4yMDguMjYvMzIgfQogICAgICAgICAg |
+|                                     | ICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE2LjI0Lz |
+|                                     | MyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBOTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsg |
+|                                     | MTAuMzMuMS4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQV |
+|                                     | l9IG5ldHdvcmsgMTAuMzMuMTkzLjAvMjQgfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHN5c2xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90 |
+|                                     | ZXN5c2xvZ05OIHsgaG9zdCAxMC4zMy4xNi4yNCB9IH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgc3lzLWxvY2F0aW9uICJORlYgUHJvZH |
+|                                     | VjdGlvbiBOTiIKICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHsgYWxsb3dlZC1hZGRyZXNzZXMgYWRkIHsgMTAuMzMuMS4wLzI1NS4yNTUuMjU1 |
+|                                     | LjAgMTAuMzMuMTkzLjAvMjU1LjI1NS4yNTUuMCAxMC41Mi4yLjM0LzI1NS4yNTUuMjU1LjI1NSAxMC41Mi4xMzAuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLj |
+|                                     | IuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5NC4zNC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMC4xMC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMTkyLjEwLzI1NS4y |
+|                                     | NTUuMjU1LjI1NSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF8zM18wXzEwXzEgeyBhdXRoLXBhc3N3b3JkIC |
+|                                     | d2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4xLjIwIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFj |
+|                                     | eS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgICAgIHRtc2 |
+|                                     | ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF8zM18xOTJfMTBfMSB7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBo |
+|                                     | b3N0IDEwLjMzLjEuMjEgbmV0d29yayBtZ210IHByaXZhY3ktcGFzc3dvcmQgJ3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbC |
+|                                     | BhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lvbiAzIH0gfQogICAgICAgICAgOzsKICAgICAgKk0wMDI0MDAqKSAgZWNobyAgIkFkZGluZyBN |
+|                                     | b2RlbCBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm |
+|                                     | 91dGUgbWFub01MIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41OS4xMzAuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMg |
+|                                     | bWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dNTCB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNDEuMTYuMTQ4LzMyIH0KICAgICAgICAgICAgIH |
+|                                     | Rtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHNubXBNTCB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNDEuMS4wLzI0IH0KICAg |
+|                                     | ICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHN5cy1sb2NhdGlvbiAiTkZWIE1vZGVsIE5OIgogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHN5c2 |
+|                                     | xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90ZXN5c2xvZ01MIHsgaG9zdCAxMC40MS4xNi4xNDggfSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5 |
+|                                     | IHN5cyBzbm1wIHsgYWxsb3dlZC1hZGRyZXNzZXMgYWRkIHsgMTAuNDEuMS4wLzI1NS4yNTUuMjU1LjAgMTAuNDEuMi4zNC8yNTUuMjU1LjI1NS4yNTUgMTAuMz |
+|                                     | MuMi4wLzI1NS4yNTUuMjU1LjAgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCBzeXMtbG9jYXRpb24gIk5GViBNb2RlbCIKICAgICAgICAg |
+|                                     | ICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF80MV8xXzIwXzEgeyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbC |
+|                                     | BtZDUgaG9zdCAxMC40MS4xLjIwIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHkt |
+|                                     | bGV2ZWwgYXV0aC1wcml2YWN5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0gCiAgICAgICAgICA7OwogICAgICAqUDAwNDMwMCopIGVjaG8gICJBZG |
+|                                     | RpbmcgR29sZCBDb2FzdCBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1h |
+|                                     | bmFnZW1lbnQtcm91dGUgbWFub0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41Mi4xMzAuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIG |
+|                                     | NyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjIuMC8yNCB9CiAgICAgICAg |
+|                                     | ICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMjA4Lj |
+|                                     | I2LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ05OIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0 |
+|                                     | d29yayAxMC4zMy4xNi4yNC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wTk4geyBnYXRld2F5ICR7TUdNVF |
+|                                     | 9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wRUsgeyBnYXRl |
+|                                     | d2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5My4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzeXNsb2cgeyByZW1vdGUtc2 |
+|                                     | VydmVycyBhZGQgeyByZW1vdGVzeXNsb2dFSyB7IGhvc3QgMTAuMzMuMjA4LjI2IH0gfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCBzeXMt |
+|                                     | bG9jYXRpb24gIk5GViBQcm9kdWN0aW9uIEdUIgogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgeyBhbGxvd2VkLWFkZHJlc3NlcyBhZGQgeyAxMC |
+|                                     | 4zMy4xLjAvMjU1LjI1NS4yNTUuMCAxMC4zMy4xOTMuMC8yNTUuMjU1LjI1NS4wIDEwLjUyLjIuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjUyLjEzMC4zNC8yNTUu |
+|                                     | MjU1LjI1NS4yNTUgMTAuMzMuMi4wLzI1NS4yNTUuMjU1LjAgMTAuMzMuMTk0LjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4wLjEwLzI1NS4yNTUuMjU1LjI1NS |
+|                                     | AxMC4zMy4xOTIuMTAvMjU1LjI1NS4yNTUuMjU1IH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMzXzBfMTBf |
+|                                     | MSB7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBob3N0IDEwLjMzLjEuMjAgbmV0d29yayBtZ210IHByaXZhY3ktcGFzc3dvcm |
+|                                     | QgJ3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbCBhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lvbiAzIH0g |
+|                                     | fQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMzXzE5Ml8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIG |
+|                                     | F1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMSBuZXR3b3JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wg |
+|                                     | YWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgIDs7CiAgICAgICpQMDA2MDAwKi |
+|                                     | kgZWNobyAgIkFkZGluZyBQZXJ0aCBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1zaCBjcmVhdGUg |
+|                                     | c3lzIG1hbmFnZW1lbnQtcm91dGUgbWFub0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41Mi4xMzAuMC8yNCB9CiAgICAgICAgICAgIC |
+|                                     | B0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjIuMC8yNCB9CiAg |
+|                                     | ICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMz |
+|                                     | MuMjA4LjI2LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ05OIHsgZ2F0ZXdheSAke01HTVRfR0FURVdB |
+|                                     | WX0gbmV0d29yayAxMC4zMy4xNi4yNC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wTk4geyBnYXRld2F5IC |
+|                                     | R7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wRUsg |
+|                                     | eyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5My4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzeXNsb2cgeyByZW |
+|                                     | 1vdGUtc2VydmVycyBhZGQgeyByZW1vdGVzeXNsb2dFSyB7IGhvc3QgMTAuMzMuMjA4LjI2IH0gfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25t |
+|                                     | cCBzeXMtbG9jYXRpb24gIk5GViBQcm9kdWN0aW9uIFBIIgogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgeyBhbGxvd2VkLWFkZHJlc3NlcyBhZG |
+|                                     | QgeyAxMC4zMy4xLjAvMjU1LjI1NS4yNTUuMCAxMC4zMy4xOTMuMC8yNTUuMjU1LjI1NS4wIDEwLjUyLjIuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjUyLjEzMC4z |
+|                                     | NC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMi4wLzI1NS4yNTUuMjU1LjAgMTAuMzMuMTk0LjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4wLjEwLzI1NS4yNTUuMj |
+|                                     | U1LjI1NSAxMC4zMy4xOTIuMTAvMjU1LjI1NS4yNTUuMjU1IH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMz |
+|                                     | XzBfMTBfMSB7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBob3N0IDEwLjMzLjEuMjAgbmV0d29yayBtZ210IHByaXZhY3ktcG |
+|                                     | Fzc3dvcmQgJ3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbCBhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lv |
+|                                     | biAzIH0gfQogICAgICAgICAgICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgdHJhcHMgYWRkIHsgaTEwXzMzXzE5Ml8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkck |
+|                                     | BhRCEnIGF1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMSBuZXR3b3JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJv |
+|                                     | dG9jb2wgYWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgIDs7CiAgICAgICpQMD |
+|                                     | A1NTE1KikgZWNobyAgIkFkZGluZyBBZGVsYWlkZSBjb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICAgICAgICAgdG1z |
+|                                     | aCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgbWFub0VLIHsgZ2F0ZXdheSAke01HTVRfR0FURVdBWX0gbmV0d29yayAxMC41Mi4xMzAuMC8yNCB9CiAgIC |
+|                                     | AgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vTk4geyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLjIu |
+|                                     | MC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzeXNsb2dFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldH |
+|                                     | dvcmsgMTAuMzMuMjA4LjI2LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ05OIHsgZ2F0ZXdheSAke01H |
+|                                     | TVRfR0FURVdBWX0gbmV0d29yayAxMC4zMy4xNi4yNC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBzbm1wTk4gey |
+|                                     | BnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0 |
+|                                     | ZSBzbm1wRUsgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE5My4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzeX |
+|                                     | Nsb2cgeyByZW1vdGUtc2VydmVycyBhZGQgeyByZW1vdGVzeXNsb2dOTiB7IGhvc3QgMTAuMzMuMTYuMjQgfSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5 |
+|                                     | IHN5cyBzbm1wIHN5cy1sb2NhdGlvbiAiTkZWIFByb2R1Y3Rpb24gQUUiCiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB7IGFsbG93ZWQtYWRkcm |
+|                                     | Vzc2VzIGFkZCB7IDEwLjMzLjEuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5My4wLzI1NS4yNTUuMjU1LjAgMTAuNTIuMi4zNC8yNTUuMjU1LjI1NS4yNTUgMTAu |
+|                                     | NTIuMTMwLjM0LzI1NS4yNTUuMjU1LjI1NSAxMC4zMy4yLjAvMjU1LjI1NS4yNTUuMCAxMC4zMy4xOTQuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjAuMTAvMj |
+|                                     | U1LjI1NS4yNTUuMjU1IDEwLjMzLjE5Mi4xMC8yNTUuMjU1LjI1NS4yNTUgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB0cmFwcyBhZGQg |
+|                                     | eyBpMTBfMzNfMF8xMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIGF1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuMzMuMS4yMCBuZXR3b3JrIG1nbXQgcH |
+|                                     | JpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wgYWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0eS1uYW1lIE5N |
+|                                     | UyB2ZXJzaW9uIDMgfSB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMgc25tcCB0cmFwcyBhZGQgeyBpMTBfMzNfMTkyXzEwXzEgeyBhdXRoLXBhc3N3b3 |
+|                                     | JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4xLjIxIG5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJp |
+|                                     | dmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHNlY3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgOzsKIC |
+|                                     | AgICAgKlAwMDMxMDAqKSBlY2hvICAiQWRkaW5nIE1vdW50IFdhdmVybGV5IGNvbmZpZ3VyYXRpb24iID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAg |
+|                                     | ICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC1yb3V0ZSBtYW5vRUsgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjUyLj |
+|                                     | EzMC4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG1hbm9OTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5l |
+|                                     | dHdvcmsgMTAuNTIuMi4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIHN5c2xvZ0VLIHsgZ2F0ZXdheSAke01HTV |
+|                                     | RfR0FURVdBWX0gbmV0d29yayAxMC4zMy4yMDguMjYvMzIgfQogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTk4g |
+|                                     | eyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjMzLjE2LjI0LzMyIH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LX |
+|                                     | JvdXRlIHNubXBOTiB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMS4wLzI0IH0KICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBt |
+|                                     | YW5hZ2VtZW50LXJvdXRlIHNubXBFSyB7IGdhdGV3YXkgJHtNR01UX0dBVEVXQVl9IG5ldHdvcmsgMTAuMzMuMTkzLjAvMjQgfQogICAgICAgICAgICAgdG1zaC |
+|                                     | Btb2RpZnkgc3lzIHN5c2xvZyB7IHJlbW90ZS1zZXJ2ZXJzIGFkZCB7IHJlbW90ZXN5c2xvZ05OIHsgaG9zdCAxMC4zMy4xNi4yNCB9IH0gfQogICAgICAgICAg |
+|                                     | ICAgdG1zaCBtb2RpZnkgc3lzIHNubXAgc3lzLWxvY2F0aW9uICJORlYgUHJvZHVjdGlvbiBNWSIKICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIH |
+|                                     | sgYWxsb3dlZC1hZGRyZXNzZXMgYWRkIHsgMTAuMzMuMS4wLzI1NS4yNTUuMjU1LjAgMTAuMzMuMTkzLjAvMjU1LjI1NS4yNTUuMCAxMC41Mi4yLjM0LzI1NS4y |
+|                                     | NTUuMjU1LjI1NSAxMC41Mi4xMzAuMzQvMjU1LjI1NS4yNTUuMjU1IDEwLjMzLjIuMC8yNTUuMjU1LjI1NS4wIDEwLjMzLjE5NC4zNC8yNTUuMjU1LjI1NS4yNT |
+|                                     | UgMTAuMzMuMC4xMC8yNTUuMjU1LjI1NS4yNTUgMTAuMzMuMTkyLjEwLzI1NS4yNTUuMjU1LjI1NSB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBz |
+|                                     | bm1wIHRyYXBzIGFkZCB7IGkxMF8zM18wXzEwXzEgeyBhdXRoLXBhc3N3b3JkICd2MGRyQGFEIScgYXV0aC1wcm90b2NvbCBtZDUgaG9zdCAxMC4zMy4xLjIwIG |
+|                                     | 5ldHdvcmsgbWdtdCBwcml2YWN5LXBhc3N3b3JkICd2MGRyQGFEIScgcHJpdmFjeS1wcm90b2NvbCBhZXMgc2VjdXJpdHktbGV2ZWwgYXV0aC1wcml2YWN5IHNl |
+|                                     | Y3VyaXR5LW5hbWUgTk1TIHZlcnNpb24gMyB9IH0KICAgICAgICAgICAgIHRtc2ggbW9kaWZ5IHN5cyBzbm1wIHRyYXBzIGFkZCB7IGkxMF8zM18xOTJfMTBfMS |
+|                                     | B7IGF1dGgtcGFzc3dvcmQgJ3YwZHJAYUQhJyBhdXRoLXByb3RvY29sIG1kNSBob3N0IDEwLjMzLjEuMjEgbmV0d29yayBtZ210IHByaXZhY3ktcGFzc3dvcmQg |
+|                                     | J3YwZHJAYUQhJyBwcml2YWN5LXByb3RvY29sIGFlcyBzZWN1cml0eS1sZXZlbCBhdXRoLXByaXZhY3kgc2VjdXJpdHktbmFtZSBOTVMgdmVyc2lvbiAzIH0gfQ |
+|                                     | ogICAgICAgICA7OwogICAgICAqKSBlY2hvICJObyBNYXRjaCBGb3VuZC4gRGVmYXVsdGluZyB0byBBZGRpbmcgTW9kZWwgY29uZmlndXJhdGlvbiIgPj4gL3Zh |
+|                                     | ci9sb2cvY3VzdG9tLWNvbmZpZy5sb2cKICAgICAgICAgICAgIHRtc2ggY3JlYXRlIHN5cyBtYW5hZ2VtZW50LXJvdXRlIG1hbm9NTCB7IGdhdGV3YXkgJHtNR0 |
+|                                     | 1UX0dBVEVXQVl9IG5ldHdvcmsgMTAuNTkuMTMwLjAvMjQgfQogICAgICAgICAgICAgdG1zaCBjcmVhdGUgc3lzIG1hbmFnZW1lbnQtcm91dGUgc3lzbG9nTUwg |
+|                                     | eyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjQxLjE2LjE0OC8zMiB9CiAgICAgICAgICAgICB0bXNoIGNyZWF0ZSBzeXMgbWFuYWdlbWVudC |
+|                                     | 1yb3V0ZSBzbm1wTUwgeyBnYXRld2F5ICR7TUdNVF9HQVRFV0FZfSBuZXR3b3JrIDEwLjQxLjEuMC8yNCB9CiAgICAgICAgICAgICB0bXNoIG1vZGlmeSBzeXMg |
+|                                     | c3lzbG9nIHsgcmVtb3RlLXNlcnZlcnMgYWRkIHsgcmVtb3Rlc3lzbG9nTUwgeyBob3N0IDEwLjQxLjE2LjE0OCB9IH0gfQogICAgICAgICAgICAgdG1zaCBtb2 |
+|                                     | RpZnkgc3lzIHNubXAgeyBhbGxvd2VkLWFkZHJlc3NlcyBhZGQgeyAxMC40MS4xLjAvMjU1LjI1NS4yNTUuMCB9IHN5cy1sb2NhdGlvbiAiTkZWIE1vZGVsIiB0 |
+|                                     | cmFwcyBhZGQgeyBpMTBfNDFfMV8yMF8xIHsgYXV0aC1wYXNzd29yZCAndjBkckBhRCEnIGF1dGgtcHJvdG9jb2wgbWQ1IGhvc3QgMTAuNDEuMS4yMCBuZXR3b3 |
+|                                     | JrIG1nbXQgcHJpdmFjeS1wYXNzd29yZCAndjBkckBhRCEnIHByaXZhY3ktcHJvdG9jb2wgYWVzIHNlY3VyaXR5LWxldmVsIGF1dGgtcHJpdmFjeSBzZWN1cml0 |
+|                                     | eS1uYW1lIE5NUyB2ZXJzaW9uIDMgfSB9IH0KICAgICAgICAgOzsKICAgICAgZXNhYwoKICAgICAgIyMjIyMgRjUgZW5oYW5jZW1lbnRzICMjIyMjCiAgICAgIG |
+|                                     | VjaG8gIkFkZCBGNSBlbmhhbmNlbWVudHMiID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCiAgICAgIHRtc2ggbW9kaWZ5IHN5cyBodHRwZCB7IHJlZGly |
+|                                     | ZWN0LWh0dHAtdG8taHR0cHMgZW5hYmxlZCB9CiAgICAgIHRtc2ggbW9kaWZ5IHN5cyBkYiB1aS5zeXN0ZW0ucHJlZmVyZW5jZXMucmVjb3Jkc3BlcnNjcmVlbi |
+|                                     | B7IHZhbHVlICIxMDAiIH0KICAgICAgdG1zaCBtb2RpZnkgc3lzIGRiIHVpLnN5c3RlbS5wcmVmZXJlbmNlcy5hZHZhbmNlZHNlbGVjdGlvbiB7IHZhbHVlICJh |
+|                                     | ZHZhbmNlZCIgfQoKICAgICAgIyMgbWVyZ2UgZnVuY3Rpb24gc3BlY2lmaWMgY3VzdG9tIGNvbmZpZyBpbnRvIGV4aXN0aW5nIGNvbmZpZ3VyYXRpb24KICAgIC |
+|                                     | AgZWNobyAiQWRkIEN1c3RvbSBDb25maWd1cmF0aW9uIiA+PiAvdmFyL2xvZy9jdXN0b20tY29uZmlnLmxvZwogICAgICB0bXNoIGxvYWQgL3N5cyBjb25maWcg |
+|                                     | bWVyZ2UgZmlsZSAvY29uZmlnL2Nsb3VkL2V4dHJhX2NvbmZpZy50bW9zCgogICAgICB0bXNoIHNhdmUgL3N5cyBjb25maWcKCiAgICAgIGVjaG8gIk9TUyBDb2 |
+|                                     | 5maWd1cmF0aW9uIExvYWQgQ29tcGxldGUiID4+IC92YXIvbG9nL2N1c3RvbS1jb25maWcubG9nCgogICAgICAjIyBkaXNhYmxlIFRMUyAxLjAKICAgICAgdG1z |
+|                                     | aCBtb2RpZnkgc3lzIGh0dHBkIHNzbC1wcm90b2NvbCAiVExTdjEuMSBUTFN2MS4yIgogICAgICB0bXNoIHNhdmUgL3N5cyBjb25maWcKCiAgICAgICMjIGRpc2 |
+|                                     | FibGUgTFJPIC0gcmVxdWlyZWQgZm9yIFNSSU9WCiAgICAgICB0bXNoIG1vZGlmeSBzeXMgZGIgdG0udGNwbGFyZ2VyZWNlaXZlb2ZmbG9hZCB2YWx1ZSBkaXNh |
+|                                     | YmxlCiAgICAgICBiaWdzdGFydCByZXN0YXJ0IHRtbQoKICAgICAgIyMjIyMgQkVHSU4gSElHSCBMRVZFTCBDT05GSUcgIyMjIyMjIyMKICAgICAgIyBDYWxsIG |
+|                                     | 9yIGV4ZWN1dGUgYWRkaXRpb25hbCBmdW5jdGlvbmFsIGxldmVsIGNvbmZpZy4KICAgICAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMK |
+|                                     | CgojIE5PVEU6IENvbW1hbmRzIG11c3QgYmUgbm9uIGJsb2NraW5nIHNvIGxvbmcgcnVubmluZyBjb21tYW5kcyAocG9sbGluZy93YWl0aW5nIGZvciBtY3BkKS |
+|                                     | BzaG91bGQgYmUgc2VudCB0byB0aGUgYmFja2dyb3VuZApydW5jbWQ6CiAtIC9jb25maWcvY2xvdWQvb25ib2FyZC5zaCAmCg==                         |
+| OS-EXT-STS:power_state              | Shutdown                                                                                                                   |
+| OS-EXT-STS:task_state               | None                                                                                                                       |
+| OS-EXT-STS:vm_state                 | stopped                                                                                                                    |
+| OS-SRV-USG:launched_at              | 2020-11-11T00:43:09.000000                                                                                                 |
+| OS-SRV-USG:terminated_at            | None                                                                                                                       |
+| accessIPv4                          |                                                                                                                            |
+| accessIPv6                          |                                                                                                                            |
+| addresses                           | DNS163VM002400-gn-net=101.119.241.254; OAM-S-4M002400-NET-002=10.59.17.31; DNS163VM002400-sig-net=10.247.255.254           |
+| config_drive                        | True                                                                                                                       |
+| created                             | 2020-11-11T00:42:54Z                                                                                                       |
+| description                         | DNS163VM002400                                                                                                             |
+| flavor                              | disk='149', ephemeral='0', extra_specs='{u'hw:cpu_policy': u'dedicated', u'hw:mem_page_size': u'1048576',                  |
+|                                     | u'hw:watchdog_action': u'reset'}', original_name='CM-F5_BIGIP_8C16M149D_IPNCOR', ram='16384', swap='0', vcpus='8'          |
+| hostId                              | 598c1ae9723a86879859980c3a687780dfa7ca2cd017ff8d31d4f21a                                                                   |
+| host_status                         | UP                                                                                                                         |
+| id                                  | ab3f5877-3c3f-4704-abc1-b2692c1ca1ba                                                                                       |
+| image                               | F5-BIGIP-13.1.3.4-0.0.5 (46ab2f64-bbf9-4c21-bb9c-fe4d137ccedc)                                                             |
+| key_name                            | m_ans_admin_IPNCOR                                                                                                         |
+| locked                              | False                                                                                                                      |
+| name                                | DNS163VM002400                                                                                                             |
+| project_id                          | 534b54cbade2489785a4f691bb394ef3                                                                                           |
+| properties                          | group='f5_bigip', ha-policy='unmanaged', vnf_descriptor='DNS163VM002400', vnf_env='env_model.yaml',                        |
+|                                     | vnf_name='DNS163VM002400'                                                                                                  |
+| security_groups                     | name='OM_Default_IPNCOR'                                                                                                   |
+| status                              | SHUTOFF                                                                                                                    |
+| tags                                | []                                                                                                                         |
+| updated                             | 2025-02-04T09:13:24Z                                                                                                       |
+| user_id                             | 7444d6df00284468a4678b084b749cf2                                                                                           |
+| volumes_attached                    |                                                                                                                            |
++-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack image-create ab3f5877-3c3f-4704-abc1-b2692c1ca1ba DNS163VM002400_backup_04022025
