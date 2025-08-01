@@ -1,0 +1,24 @@
+Method of Procedure (MOP): NTP Server Configuration using Chrony
+
+Objective:
+To configure a Linux system to use internal/external time sources for Network Time Protocol (NTP) synchronization using chronyd.
+
+Step 1: Edit Chrony Configuration File
+
+Open the chrony configuration file:
+# vi /etc/chrony.conf
+
+In the file, scroll to the section where NTP pools are defined. Add the following lines (or update them if already present):
+
+pool timeserver1.india.com iburst
+pool timeserver2.india.com iburst
+pool timeserver3.india.com iburst
+pool timeserver4.india.com iburst
+
+Leave other configurations commented unless changes are specifically required. These lines allow the chrony service to sync time with the defined time servers.
+
+Step 2: Restart the Chrony Service
+
+# service chronyd restart
+
+

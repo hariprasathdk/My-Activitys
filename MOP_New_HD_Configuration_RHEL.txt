@@ -1,0 +1,150 @@
+Method of Procedure (MOP): Attaching and Configuring a New Hard Disk in RHEL Linux
+
+Objective:
+To attach, format, and mount a new hard disk to a Red Hat Linux EC2 instance, and make the changes persistent using /etc/fstab.
+
+Steps:
+
+1. Log in to the EC2 instance:
+   $ ssh -i <your-key.pem> ec2-user@<ec2-public-ip>
+
+2. Switch to root user:
+   $ sudo -i
+
+3. List all disks to confirm the new disk is attached:
+   # fdisk -l
+
+   Example Output:
+   /dev/xvdb       10 GiB
+
+4. Create a filesystem on the new disk:
+   # mkfs.ext4 /dev/xvdb
+
+5. Create a mount point:
+   # mkdir /redhat
+
+6. Mount the new disk to the directory:
+   # mount /dev/xvdb /redhat
+
+7. Verify the mount:
+   # df -h
+
+8. Make the mount persistent across reboots:
+   a. Get UUID of the new disk:
+      # blkid /dev/xvdb
+
+   b. Edit /etc/fstab and add:
+      UUID=<copied-uuid> /redhat ext4 defaults 0 0
+
+   OR directly add:
+      /dev/xvdb /redhat ext4 defaults 0 0
+
+9. Verify no errors in fstab:
+   # mount -a
+
+10. Confirm everything is working:
+    # df -h
+
+This completes the configuration of the new hard disk on RHEL Linux.
+
+===========================================================================================
+
+My Logs
+
+Using username "ec2-user".
+Authenticating with public key "mysql"
+Register this system with Red Hat Insights: rhc connect
+
+Example:
+# rhc connect --activation-key <key> --organization <org>
+
+The rhc client and Red Hat Insights will enable analytics and additional
+management capabilities on your system.
+View your connected systems at https://console.redhat.com/insights
+
+You can learn more about how to register your system
+using rhc at https://red.ht/registration
+[ec2-user@ip-172-31-6-206 ~]$
+[ec2-user@ip-172-31-6-206 ~]$
+[ec2-user@ip-172-31-6-206 ~]$ sudo -i
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# fdisl -l
+-bash: fdisl: command not found
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# fdisk -l
+Disk /dev/xvda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: D209C89E-EA5E-4FBD-B161-B461CCE297E0
+
+Device      Start      End  Sectors  Size Type
+/dev/xvda1   2048     4095     2048    1M BIOS boot
+/dev/xvda2   4096   413695   409600  200M EFI System
+/dev/xvda3 413696 41943006 41529311 19.8G Linux filesystem
+
+
+Disk /dev/xvdb: 10 GiB, 10737418240 bytes, 20971520 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# mkfs /dev/xvdb
+mke2fs 1.47.1 (20-May-2024)
+Creating filesystem with 2621440 4k blocks and 655360 inodes
+Filesystem UUID: dd359817-5899-488d-a853-950f311f9b12
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables: done
+Writing inode tables: done
+Writing superblocks and filesystem accounting information: done
+
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# mkdir /redhat
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# mount /dev/xvdb /redhat/
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# ls
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# df -kh
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda3       20G  1.9G   18G  10% /
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs           476M     0  476M   0% /dev/shm
+tmpfs           191M  3.6M  187M   2% /run
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+/dev/xvda2      200M  8.4M  192M   5% /boot/efi
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
+tmpfs            96M  4.0K   96M   1% /run/user/1000
+/dev/xvdb       9.9G   24K  9.4G   1% /redhat
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# vi /etc/fstab
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]# df -kh
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda3       20G  1.9G   18G  10% /
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs           476M     0  476M   0% /dev/shm
+tmpfs           191M  3.6M  187M   2% /run
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+/dev/xvda2      200M  8.4M  192M   5% /boot/efi
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
+tmpfs            96M  4.0K   96M   1% /run/user/1000
+/dev/xvdb       9.9G   24K  9.4G   1% /redhat
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+[root@ip-172-31-6-206 ~]#
+

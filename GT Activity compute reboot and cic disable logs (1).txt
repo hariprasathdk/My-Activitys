@@ -1,0 +1,488 @@
+Connection to cic-1 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# clear
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh compute-4300-316100121
+Warning: Permanently added 'compute-4300-316100121' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have new mail.
+Last login: Wed Jun 11 11:43:09 2025 from 192.168.9.11
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# df -kh
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                          16G     0   16G   0% /dev
+tmpfs                        256M  151M  106M  59% /run
+/dev/mapper/os-root           50G  2.5G   45G   6% /
+tmpfs                         13G     0   13G   0% /dev/shm
+tmpfs                        5.0M     0  5.0M   0% /run/lock
+tmpfs                        126G     0  126G   0% /sys/fs/cgroup
+/dev/nvme0n1p3               392M  165M  208M  45% /boot
+/dev/mapper/data-collection  4.8G   10M  4.6G   1% /data_collection
+/dev/mapper/logs-log         9.8G  8.8G  447M  96% /var/log
+/dev/mapper/crashes-crash     30G   44M   28G   1% /var/crash
+/dev/mapper/vm-nova          1.7T  143M  1.7T   1% /var/lib/nova
+tmpfs                        128M     0  128M   0% /run/user/0
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# date
+Thu Jun 12 23:09:23 AEST 2025
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# exit
+logout
+Connection to compute-4300-316100121 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# uptime
+ 23:16:35 up 22 days, 20:49,  1 user,  load average: 0.05, 0.06, 0.05
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# date
+Thu Jun 12 23:16:36 AEST 2025
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh compute-4300-316100121
+Warning: Permanently added 'compute-4300-316100121' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have new mail.
+Last login: Thu Jun 12 23:09:01 2025 from 192.168.9.11
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# date
+Thu Jun 12 23:17:26 AEST 2025
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# uptime
+ 23:17:34 up 541 days, 23:38,  1 user,  load average: 3.13, 3.18, 3.20
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# systemctl status nova-compute.service
+● nova-compute.service - OpenStack Compute
+   Loaded: loaded (/lib/systemd/system/nova-compute.service; enabled; vendor preset: enabled)
+  Drop-In: /etc/systemd/system/nova-compute.service.d
+           └─custom_fee.conf, nova-compute.conf, restrict_ssl_context.conf
+   Active: active (running) since Tue 2023-12-19 00:39:25 AEDT; 1 years 5 months ago
+  Process: 16352 ExecStartPre=/bin/chown nova:root /var/lock/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16347 ExecStartPre=/bin/chown nova:nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16339 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16334 ExecStartPre=/bin/chown nova:nova /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16328 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+ Main PID: 16357 (nova-compute)
+    Tasks: 23
+   CGroup: /system.slice/nova-compute.service
+           ├─16357 /usr/bin/python /usr/bin/nova-compute --config-file=/etc/nova/nova.conf
+           └─16706 /usr/bin/python2.7 /usr/bin/privsep-helper --config-file /etc/nova/nova.conf --privsep_context vif_plug_ovs.privsep.vif_plug --privsep_sock_path 
+
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.026 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.044 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.045 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.052 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.114 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.123 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.146 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.153 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.182 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:17:39 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:17:39.264 16357 INFO nova.compute.resource_tracker [req-8668d81d-8480-42d9-a9c0
+
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# exit
+logout
+Connection to compute-4300-316100121 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh cic-1
+Warning: Permanently added 'cic-1' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have mail.
+Last login: Thu Jun 12 22:50:33 2025 from 192.168.9.11
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~#  . openrc 
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova service-list | grep -i compute-4300-316100121
+| 1f32587a-411b-445a-8274-e49ea0f56954 | nova-compute     | compute-4300-316100121.domain.tld | SVHCVGEN001P004300 | enabled  | up    | 2025-06-12T13:20:01.000000 | -               | False       |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack compute service set --disable --disable-reason "maintenance" compute-4300-316100121.cee.tld nova-compute
+Compute service for host "compute-4300-316100121.cee.tld" and binary "nova-compute" not found.
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack compute service set --disable --disable-reason "maintenance" compute-4300-316100121 nova-compute
+Compute service for host "compute-4300-316100121" and binary "nova-compute" not found.
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack compute service set --disable --reason "maintenance" compute-4300-316100121.cee.tld nova-compute
+usage: openstack compute service set [-h] [--enable | --disable]
+                                     [--disable-reason <reason>]
+                                     [--up | --down]
+                                     <host> <service>
+openstack compute service set: error: unrecognized arguments: --reason nova-compute
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack compute service set --disable --disable-reason "maintenance" compute-4300-316100121.domain.tld nova-compute
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova service-list | grep -i compute-4300-316100121
+| 1f32587a-411b-445a-8274-e49ea0f56954 | nova-compute     | compute-4300-316100121.domain.tld | SVHCVGEN001P004300 | disabled | up    | 2025-06-12T13:34:31.000000 | maintenance     | False       |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# date
+Thu Jun 12 23:34:38 AEST 2025
+root@cic-1:~# 
+root@cic-1:~# exit
+logout
+Connection to cic-1 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh compute-4300-316100121
+Warning: Permanently added 'compute-4300-316100121' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have new mail.
+Last login: Thu Jun 12 23:17:19 2025 from 192.168.9.11
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# df -kh
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                          16G     0   16G   0% /dev
+tmpfs                        256M  151M  106M  59% /run
+/dev/mapper/os-root           50G  2.5G   45G   6% /
+tmpfs                         13G     0   13G   0% /dev/shm
+tmpfs                        5.0M     0  5.0M   0% /run/lock
+tmpfs                        126G     0  126G   0% /sys/fs/cgroup
+/dev/nvme0n1p3               392M  165M  208M  45% /boot
+/dev/mapper/data-collection  4.8G   10M  4.6G   1% /data_collection
+/dev/mapper/logs-log         9.8G  8.8G  446M  96% /var/log
+/dev/mapper/crashes-crash     30G   44M   28G   1% /var/crash
+/dev/mapper/vm-nova          1.7T  143M  1.7T   1% /var/lib/nova
+tmpfs                        128M     0  128M   0% /run/user/0
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# systemctl status nova-compute.service
+● nova-compute.service - OpenStack Compute
+   Loaded: loaded (/lib/systemd/system/nova-compute.service; enabled; vendor preset: enabled)
+  Drop-In: /etc/systemd/system/nova-compute.service.d
+           └─custom_fee.conf, nova-compute.conf, restrict_ssl_context.conf
+   Active: active (running) since Tue 2023-12-19 00:39:25 AEDT; 1 years 5 months ago
+  Process: 16352 ExecStartPre=/bin/chown nova:root /var/lock/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16347 ExecStartPre=/bin/chown nova:nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16339 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16334 ExecStartPre=/bin/chown nova:nova /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16328 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+ Main PID: 16357 (nova-compute)
+    Tasks: 23
+   CGroup: /system.slice/nova-compute.service
+           ├─16357 /usr/bin/python /usr/bin/nova-compute --config-file=/etc/nova/nova.conf
+           └─16706 /usr/bin/python2.7 /usr/bin/privsep-helper --config-file /etc/nova/nova.conf --privsep_context vif_plug_ovs.privsep.vif_plug --privsep_sock_path 
+
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.021 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.038 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.040 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.047 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.110 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.118 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.140 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.147 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.175 16357 WARNING nova.pci.utils [req-8668d81d-8480-42d9-a9c0-a0d7098afa2
+Jun 12 23:34:49 compute-4300-316100121.domain.tld nova-compute[16357]: 2025-06-12 23:34:49.458 16357 INFO nova.compute.resource_tracker [req-8668d81d-8480-42d9-a9c0
+
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# ipmi
+ipmi-chassis         ipmi-console         ipmi-locate          ipmi-pet             ipmi-power           ipmi-sensors-config  
+ipmi-chassis-config  ipmi-dcmi            ipmimonitoring       ipmiping             ipmi-raw             ipmitool             
+ipmi-config          ipmievd              ipmi-oem             ipmi-ping            ipmi-sel             
+ipmiconsole          ipmi-fru             ipmi-pef-config      ipmipower            ipmi-sensors         
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# ipmitool lan print
+Set in Progress         : Set Complete
+Auth Type Support       : MD5 
+Auth Type Enable        : Callback : MD5 
+                        : User     : MD5 
+                        : Operator : MD5 
+                        : Admin    : MD5 
+                        : OEM      : MD5 
+IP Address Source       : DHCP Address
+IP Address              : 10.50.169.179
+Subnet Mask             : 255.255.252.0
+MAC Address             : 90:38:09:46:f6:49
+SNMP Community String   : Quanta
+IP Header               : TTL=0x40 Flags=0x40 Precedence=0x00 TOS=0x10
+BMC ARP Control         : ARP Responses Enabled, Gratuitous ARP Disabled
+Gratituous ARP Intrvl   : 0.0 seconds
+Default Gateway IP      : 0.0.0.0
+Default Gateway MAC     : 00:00:00:00:00:00
+Backup Gateway IP       : 0.0.0.0
+Backup Gateway MAC      : 00:00:00:00:00:00
+802.1q VLAN ID          : Disabled
+802.1q VLAN Priority    : 0
+RMCP+ Cipher Suites     : 0,1,2,3,6,7,8,11,12,15,16,17
+Cipher Suite Priv Max   : XaaaaaaaaaaaXXX
+                        :     X=Cipher Suite Unused
+                        :     c=CALLBACK
+                        :     u=USER
+                        :     o=OPERATOR
+                        :     a=ADMIN
+                        :     O=OEM
+Bad Password Threshold  : 0
+Invalid password disable: no
+Attempt Count Reset Int.: 0
+User Lockout Interval   : 0
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# date
+Thu Jun 12 23:37:28 AEST 2025
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# reboot
+Connection to compute-4300-316100121 closed by remote host.
+Connection to compute-4300-316100121 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ping compute-4300-316100121
+PING compute-4300-316100121.domain.tld (192.168.9.57) 56(84) bytes of data.
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=1 ttl=64 time=0.148 ms
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=2 ttl=64 time=0.134 ms
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=3 ttl=64 time=0.167 ms
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=4 ttl=64 time=0.143 ms
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=5 ttl=64 time=0.130 ms
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=6 ttl=64 time=0.140 ms
+64 bytes from compute-4300-316100121.domain.tld (192.168.9.57): icmp_seq=7 ttl=64 time=0.129 ms
+^C
+--- compute-4300-316100121.domain.tld ping statistics ---
+7 packets transmitted, 7 received, 0% packet loss, time 6000ms
+rtt min/avg/max/mdev = 0.129/0.141/0.167/0.017 ms
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# date
+Thu Jun 12 23:51:58 AEST 2025
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh compute-4300-316100121
+Warning: Permanently added 'compute-4300-316100121' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have new mail.
+Last login: Thu Jun 12 23:35:19 2025 from 192.168.9.11
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# df -kh
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                          16G     0   16G   0% /dev
+tmpfs                        256M   30M  227M  12% /run
+/dev/mapper/os-root           50G  2.5G   45G   6% /
+tmpfs                         13G     0   13G   0% /dev/shm
+tmpfs                        5.0M     0  5.0M   0% /run/lock
+tmpfs                        126G     0  126G   0% /sys/fs/cgroup
+/dev/nvme0n1p3               392M  165M  208M  45% /boot
+/dev/mapper/data-collection  4.8G   10M  4.6G   1% /data_collection
+/dev/mapper/logs-log         9.8G  1.4G  7.9G  16% /var/log
+/dev/mapper/crashes-crash     30G   44M   28G   1% /var/crash
+/dev/mapper/vm-nova          1.7T  143M  1.7T   1% /var/lib/nova
+tmpfs                        128M     0  128M   0% /run/user/0
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# date
+Thu Jun 12 23:52:37 AEST 2025
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# uptime
+ 23:53:23 up 3 min,  1 user,  load average: 3.15, 1.79, 0.74
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# systemctl status nova-compute.service
+● nova-compute.service - OpenStack Compute
+   Loaded: loaded (/lib/systemd/system/nova-compute.service; enabled; vendor preset: enabled)
+  Drop-In: /etc/systemd/system/nova-compute.service.d
+           └─custom_fee.conf, nova-compute.conf, restrict_ssl_context.conf
+   Active: active (running) since Thu 2025-06-12 23:50:17 AEST; 3min 15s ago
+  Process: 16239 ExecStartPre=/bin/chown nova:root /var/lock/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16233 ExecStartPre=/bin/chown nova:nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16230 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16227 ExecStartPre=/bin/chown nova:nova /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16214 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+ Main PID: 16246 (nova-compute)
+    Tasks: 22
+   CGroup: /system.slice/nova-compute.service
+           └─16246 /usr/bin/python /usr/bin/nova-compute --config-file=/etc/nova/nova.conf
+
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.189 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.265 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.271 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.294 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.312 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.331 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.337 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.342 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.368 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:53:21 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:53:21.438 16246 INFO nova.compute.resource_tracker [req-f5256b08-b30e-47b0-845a
+
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# exit
+logout
+Connection to compute-4300-316100121 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh cic-1
+Warning: Permanently added 'cic-1' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have mail.
+Last login: Thu Jun 12 23:32:35 2025 from 192.168.9.11
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~#  . openrc 
+root@cic-1:~# 
+root@cic-1:~# nova service-list | grep -i compute-4300-316100121
+| 1f32587a-411b-445a-8274-e49ea0f56954 | nova-compute     | compute-4300-316100121.domain.tld | SVHCVGEN001P004300 | disabled | up    | 2025-06-12T13:53:59.000000 | maintenance     | False       |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# date; openstack compute service set --enable compute-4300-316100121.cee.tld nova-compute
+Thu Jun 12 23:54:46 AEST 2025
+Compute service for host "compute-4300-316100121.cee.tld" and binary "nova-compute" not found.
+root@cic-1:~# 
+root@cic-1:~# openstack compute service set --enable compute-4300-316100121.cee.tld nova-compute
+Compute service for host "compute-4300-316100121.cee.tld" and binary "nova-compute" not found.
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# openstack compute service set --enable compute-4300-316100121.domain.tld nova-compute
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# nova service-list | grep -i compute-4300-316100121
+| 1f32587a-411b-445a-8274-e49ea0f56954 | nova-compute     | compute-4300-316100121.domain.tld | SVHCVGEN001P004300 | enabled  | up    | 2025-06-12T13:58:09.000000 | -               | False       |
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# date
+Thu Jun 12 23:58:18 AEST 2025
+root@cic-1:~# 
+root@cic-1:~# 
+root@cic-1:~# exit
+logout
+Connection to cic-1 closed.
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# 
+[root@VIM002VP004300FUL001]# ssh compute-4300-316100121
+Warning: Permanently added 'compute-4300-316100121' (ECDSA) to the list of known hosts.
+
+Attention! This system is managed by VHA. Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-162-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+You have new mail.
+Last login: Thu Jun 12 23:52:21 2025 from 192.168.9.11
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# df -kh
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                          16G     0   16G   0% /dev
+tmpfs                        256M   29M  228M  12% /run
+/dev/mapper/os-root           50G  2.5G   45G   6% /
+tmpfs                         13G     0   13G   0% /dev/shm
+tmpfs                        5.0M     0  5.0M   0% /run/lock
+tmpfs                        126G     0  126G   0% /sys/fs/cgroup
+/dev/nvme0n1p3               392M  165M  208M  45% /boot
+/dev/mapper/data-collection  4.8G   10M  4.6G   1% /data_collection
+/dev/mapper/logs-log         9.8G  1.4G  7.9G  16% /var/log
+/dev/mapper/crashes-crash     30G   44M   28G   1% /var/crash
+/dev/mapper/vm-nova          1.7T  143M  1.7T   1% /var/lib/nova
+tmpfs                        128M     0  128M   0% /run/user/0
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# date
+Thu Jun 12 23:59:29 AEST 2025
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# uptime
+ 23:59:35 up 9 min,  2 users,  load average: 3.40, 2.99, 1.65
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# systemctl status nova-compute.service
+● nova-compute.service - OpenStack Compute
+   Loaded: loaded (/lib/systemd/system/nova-compute.service; enabled; vendor preset: enabled)
+  Drop-In: /etc/systemd/system/nova-compute.service.d
+           └─custom_fee.conf, nova-compute.conf, restrict_ssl_context.conf
+   Active: active (running) since Thu 2025-06-12 23:50:17 AEST; 9min ago
+  Process: 16239 ExecStartPre=/bin/chown nova:root /var/lock/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16233 ExecStartPre=/bin/chown nova:nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16230 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova /var/run/nova (code=exited, status=0/SUCCESS)
+  Process: 16227 ExecStartPre=/bin/chown nova:nova /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+  Process: 16214 ExecStartPre=/bin/mkdir -p /var/lock/nova /var/lib/nova (code=exited, status=0/SUCCESS)
+ Main PID: 16246 (nova-compute)
+    Tasks: 22
+   CGroup: /system.slice/nova-compute.service
+           └─16246 /usr/bin/python /usr/bin/nova-compute --config-file=/etc/nova/nova.conf
+
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.217 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.298 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.305 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.327 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.346 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.367 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.373 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.378 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.406 16246 WARNING nova.pci.utils [req-f5256b08-b30e-47b0-845a-878d1e2b276
+Jun 12 23:59:27 compute-4300-316100121.domain.tld nova-compute[16246]: 2025-06-12 23:59:27.472 16246 INFO nova.compute.resource_tracker [req-f5256b08-b30e-47b0-845a
+
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# date
+Thu Jun 12 23:59:53 AEST 2025
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
+root@compute-4300-316100121:~# 
