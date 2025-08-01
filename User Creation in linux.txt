@@ -1,0 +1,307 @@
+Using username "ec2-user".
+Authenticating with public key "mysql"
+Register this system with Red Hat Insights: rhc connect
+
+Example:
+# rhc connect --activation-key <key> --organization <org>
+
+The rhc client and Red Hat Insights will enable analytics and additional
+management capabilities on your system.
+View your connected systems at https://console.redhat.com/insights
+
+You can learn more about how to register your system
+using rhc at https://red.ht/registration
+[ec2-user@ip-172-31-3-182 ~]$
+[ec2-user@ip-172-31-3-182 ~]$
+[ec2-user@ip-172-31-3-182 ~]$ sudo su
+[root@ip-172-31-3-182 ec2-user]#
+[root@ip-172-31-3-182 ec2-user]#
+[root@ip-172-31-3-182 ec2-user]# exit
+exit
+[ec2-user@ip-172-31-3-182 ~]$
+[ec2-user@ip-172-31-3-182 ~]$
+[ec2-user@ip-172-31-3-182 ~]$ sudo -i
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# df -kh
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda3      9.8G  1.7G  8.1G  18% /
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs           476M     0  476M   0% /dev/shm
+tmpfs           191M  3.6M  187M   2% /run
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+/dev/xvda2      200M  8.4M  192M   5% /boot/efi
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
+tmpfs            96M  4.0K   96M   1% /run/user/1000
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# useradd hari
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# passwd hari
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: password updated successfully
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cd /home/
+[root@ip-172-31-3-182 home]# ls
+ec2-user  hari
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]# mkdir /data/prj
+mkdir: cannot create directory ‘/data/prj’: No such file or directory
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]# mkdir /data
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]# cd /data/
+[root@ip-172-31-3-182 data]#
+[root@ip-172-31-3-182 data]#
+[root@ip-172-31-3-182 data]# ls
+[root@ip-172-31-3-182 data]#
+[root@ip-172-31-3-182 data]#
+[root@ip-172-31-3-182 data]# mkdir prj
+[root@ip-172-31-3-182 data]#
+[root@ip-172-31-3-182 data]#
+[root@ip-172-31-3-182 data]# cd
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# useradd -d /data/prj/ poovarasan
+useradd: warning: the home directory /data/prj/ already exists.
+useradd: Not copying any file from skel directory into it.
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cd /data/prj/
+[root@ip-172-31-3-182 prj]# ls
+[root@ip-172-31-3-182 prj]#
+[root@ip-172-31-3-182 prj]#
+[root@ip-172-31-3-182 prj]# cd
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cd /data/projects
+-bash: cd: /data/projects: No such file or directory
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cd /
+[root@ip-172-31-3-182 /]#
+[root@ip-172-31-3-182 /]#
+[root@ip-172-31-3-182 /]# ls
+afs  bin  boot  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ip-172-31-3-182 /]#
+[root@ip-172-31-3-182 /]#
+[root@ip-172-31-3-182 /]# cd /home/
+[root@ip-172-31-3-182 home]# ls
+ec2-user  hari
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]# useradd -d /data/prj/ poovarasan
+useradd: user 'poovarasan' already exists
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]# ls
+ec2-user  hari
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]#
+[root@ip-172-31-3-182 home]# cd
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# passwd poovarasan
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+Sorry, passwords do not match.
+passwd: Authentication token manipulation error
+passwd: password unchanged
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# passwd poovarasan
+New password:
+BAD PASSWORD: The password contains the user name in some form
+Retype new password:
+passwd: password updated successfully
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cat /etc/passwd | grep poovarasan
+poovarasan:x:1002:1002::/data/prj/:/bin/bash
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# adduser -u 6010 kokila
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cat /etc/passwd | grep kokila
+kokila:x:6010:6010::/home/kokila:/bin/bash
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# adduser -u 6011 -g hari kirthika
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cat /etc/passwd kirthika
+root:x:0:0:Super User:/root:/bin/bash
+bin:x:1:1:bin:/bin:/usr/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/usr/sbin/nologin
+adm:x:3:4:adm:/var/adm:/usr/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/usr/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/usr/sbin/nologin
+operator:x:11:0:operator:/root:/usr/sbin/nologin
+games:x:12:100:games:/usr/games:/usr/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/usr/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/usr/sbin/nologin
+yggdrasil:x:999:999:yggdrasil system user:/var/lib/yggdrasil:/usr/sbin/nologin
+yggdrasil-worker:x:998:998:yggdrasil worker user:/:/usr/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+systemd-oom:x:997:996:systemd Userspace OOM Killer:/:/sbin/nologin
+polkitd:x:114:114:User for polkitd:/:/sbin/nologin
+dhcpcd:x:996:995:Minimalistic DHCP client:/var/lib/dhcpcd:/usr/sbin/nologin
+sssd:x:995:994:User for sssd:/run/sssd/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+chrony:x:994:993:chrony system user:/var/lib/chrony:/sbin/nologin
+systemd-coredump:x:992:992:systemd Core Dumper:/:/usr/sbin/nologin
+ec2-user:x:1000:1000:Cloud User:/home/ec2-user:/bin/bash
+hari:x:1001:1001::/home/hari:/bin/bash
+poovarasan:x:1002:1002::/data/prj/:/bin/bash
+kokila:x:6010:6010::/home/kokila:/bin/bash
+kirthika:x:6011:1001::/home/kirthika:/bin/bash
+cat: kirthika: No such file or directory
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# groupadd cloudadmins
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cat /etc/group
+root:x:0:
+bin:x:1:
+daemon:x:2:
+sys:x:3:
+adm:x:4:ec2-user
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mem:x:8:
+kmem:x:9:
+wheel:x:10:
+cdrom:x:11:
+mail:x:12:
+man:x:15:
+dialout:x:18:
+floppy:x:19:
+games:x:20:
+tape:x:33:
+video:x:39:
+ftp:x:50:
+lock:x:54:
+audio:x:63:
+users:x:100:
+nobody:x:65534:
+utmp:x:22:
+utempter:x:35:
+yggdrasil:x:999:
+yggdrasil-worker:x:998:yggdrasil
+rhsm:x:997:yggdrasil
+dbus:x:81:
+tss:x:59:
+systemd-oom:x:996:
+input:x:104:
+kvm:x:36:
+render:x:105:
+sgx:x:106:
+systemd-journal:x:190:ec2-user
+polkitd:x:114:
+dhcpcd:x:995:
+sssd:x:994:
+sshd:x:74:
+chrony:x:993:
+systemd-coredump:x:992:
+ec2-user:x:1000:
+hari:x:1001:
+poovarasan:x:1002:
+kokila:x:6010:
+cloudadmins:x:6011:
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cat /etc/group | cloudadmins
+-bash: cloudadmins: command not found
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# cat /etc/group | grep cloudadmins
+cloudadmins:x:6011:
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# adduser -G cloudadmins hari
+useradd: user 'hari' already exists
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# adduser -G cloudadmins poovarasan
+useradd: user 'poovarasan' already exists
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# addgroup cloudadmins hari
+-bash: addgroup: command not found
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# usermod -aG cloudadmins hari
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# groups hari
+hari : hari cloudadmins
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# usermod -aG cloudadmins poovarasan
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# groups poovarasan
+poovarasan : poovarasan cloudadmins
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# useradd -M mani
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# ls -l /home/mani
+ls: cannot access '/home/mani': No such file or directory
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# useradd -e 2025-08-20 madan
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# chage -l madan
+Last password change                                    : Aug 01, 2025
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : Aug 20, 2025
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# useradd -e 2025-08-25 -f 45 kunal
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# chage -l kunal
+Last password change                                    : Aug 01, 2025
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : Aug 25, 2025
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]# date
+Fri Aug  1 11:09:38 UTC 2025
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
+[root@ip-172-31-3-182 ~]#
