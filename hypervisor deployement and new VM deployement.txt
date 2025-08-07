@@ -1,0 +1,445 @@
+root@192:~# egrep -c '(vmx|svm)' /proc/cpuinfo
+8
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install virt-install -y
+Updating Subscription Management repositories.
+Red Hat CodeReady Linux Builder for RHEL 10 x86_64 (RPMs)                                                                                            5.5 kB/s | 4.0 kB     00:00    
+Red Hat CodeReady Linux Builder for RHEL 10 x86_64 (RPMs)                                                                                            489 kB/s | 703 kB     00:01    
+Red Hat Enterprise Linux 10 for x86_64 - AppStream (RPMs)                                                                                            7.9 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 10 for x86_64 - AppStream (RPMs)                                                                                            2.2 MB/s | 3.0 MB     00:01    
+Red Hat Enterprise Linux 10 for x86_64 - BaseOS (RPMs)                                                                                                11 kB/s | 4.1 kB     00:00    
+Red Hat Enterprise Linux 10 for x86_64 - BaseOS (RPMs)                                                                                               4.2 MB/s |  16 MB     00:03    
+Package virt-install-5.0.0-1.el10.noarch is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+root@192:~# dnf install libvirt -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:00:37 ago on Wed 06 Aug 2025 01:23:32 PM EDT.
+Package libvirt-10.10.0-8.1.el10_0.x86_64 is already installed.
+Dependencies resolved.
+=====================================================================================================================================================================================
+ Package                                                  Architecture              Version                               Repository                                            Size
+=====================================================================================================================================================================================
+Upgrading:
+ libvirt                                                  x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     16 k
+ libvirt-client                                           x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    437 k
+ libvirt-client-qemu                                      x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     41 k
+ libvirt-daemon                                           x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    206 k
+ libvirt-daemon-common                                    x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    134 k
+ libvirt-daemon-config-network                            x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     23 k
+ libvirt-daemon-config-nwfilter                           x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     35 k
+ libvirt-daemon-driver-interface                          x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    212 k
+ libvirt-daemon-driver-network                            x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    265 k
+ libvirt-daemon-driver-nodedev                            x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    235 k
+ libvirt-daemon-driver-nwfilter                           x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    248 k
+ libvirt-daemon-driver-qemu                               x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    1.0 M
+ libvirt-daemon-driver-secret                             x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    209 k
+ libvirt-daemon-driver-storage                            x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     16 k
+ libvirt-daemon-driver-storage-core                       x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    265 k
+ libvirt-daemon-driver-storage-disk                       x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     32 k
+ libvirt-daemon-driver-storage-iscsi                      x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     29 k
+ libvirt-daemon-driver-storage-logical                    x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     33 k
+ libvirt-daemon-driver-storage-mpath                      x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     26 k
+ libvirt-daemon-driver-storage-rbd                        x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     37 k
+ libvirt-daemon-driver-storage-scsi                       x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     28 k
+ libvirt-daemon-lock                                      x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     58 k
+ libvirt-daemon-log                                       x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     62 k
+ libvirt-daemon-plugin-lockd                              x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                     32 k
+ libvirt-daemon-proxy                                     x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    204 k
+ libvirt-libs                                             x86_64                    10.10.0-8.3.el10_0                    rhel-10-for-x86_64-appstream-rpms                    5.1 M
+
+Transaction Summary
+=====================================================================================================================================================================================
+Upgrade  26 Packages
+
+Total download size: 8.9 M
+Downloading Packages:
+(1/26): libvirt-10.10.0-8.3.el10_0.x86_64.rpm                                                                                                         35 kB/s |  16 kB     00:00    
+(2/26): libvirt-client-qemu-10.10.0-8.3.el10_0.x86_64.rpm                                                                                             87 kB/s |  41 kB     00:00    
+(3/26): libvirt-client-10.10.0-8.3.el10_0.x86_64.rpm                                                                                                 849 kB/s | 437 kB     00:00    
+(4/26): libvirt-daemon-common-10.10.0-8.3.el10_0.x86_64.rpm                                                                                          427 kB/s | 134 kB     00:00    
+(5/26): libvirt-daemon-10.10.0-8.3.el10_0.x86_64.rpm                                                                                                 596 kB/s | 206 kB     00:00    
+(6/26): libvirt-daemon-driver-storage-iscsi-10.10.0-8.3.el10_0.x86_64.rpm                                                                             95 kB/s |  29 kB     00:00    
+(7/26): libvirt-daemon-config-network-10.10.0-8.3.el10_0.x86_64.rpm                                                                                   59 kB/s |  23 kB     00:00    
+(8/26): libvirt-daemon-config-nwfilter-10.10.0-8.3.el10_0.x86_64.rpm                                                                                  93 kB/s |  35 kB     00:00    
+(9/26): libvirt-daemon-driver-interface-10.10.0-8.3.el10_0.x86_64.rpm                                                                                549 kB/s | 212 kB     00:00    
+(10/26): libvirt-daemon-driver-nodedev-10.10.0-8.3.el10_0.x86_64.rpm                                                                                 758 kB/s | 235 kB     00:00    
+(11/26): libvirt-daemon-driver-network-10.10.0-8.3.el10_0.x86_64.rpm                                                                                 784 kB/s | 265 kB     00:00    
+(12/26): libvirt-daemon-driver-nwfilter-10.10.0-8.3.el10_0.x86_64.rpm                                                                                748 kB/s | 248 kB     00:00    
+(13/26): libvirt-daemon-driver-storage-10.10.0-8.3.el10_0.x86_64.rpm                                                                                  45 kB/s |  16 kB     00:00    
+(14/26): libvirt-daemon-driver-secret-10.10.0-8.3.el10_0.x86_64.rpm                                                                                  542 kB/s | 209 kB     00:00    
+(15/26): libvirt-daemon-driver-qemu-10.10.0-8.3.el10_0.x86_64.rpm                                                                                    2.1 MB/s | 1.0 MB     00:00    
+(16/26): libvirt-daemon-driver-storage-disk-10.10.0-8.3.el10_0.x86_64.rpm                                                                             82 kB/s |  32 kB     00:00    
+(17/26): libvirt-daemon-driver-storage-logical-10.10.0-8.3.el10_0.x86_64.rpm                                                                          93 kB/s |  33 kB     00:00    
+(18/26): libvirt-daemon-driver-storage-core-10.10.0-8.3.el10_0.x86_64.rpm                                                                            623 kB/s | 265 kB     00:00    
+(19/26): libvirt-daemon-driver-storage-rbd-10.10.0-8.3.el10_0.x86_64.rpm                                                                              95 kB/s |  37 kB     00:00    
+(20/26): libvirt-daemon-driver-storage-mpath-10.10.0-8.3.el10_0.x86_64.rpm                                                                            65 kB/s |  26 kB     00:00    
+(21/26): libvirt-daemon-driver-storage-scsi-10.10.0-8.3.el10_0.x86_64.rpm                                                                             73 kB/s |  28 kB     00:00    
+(22/26): libvirt-daemon-lock-10.10.0-8.3.el10_0.x86_64.rpm                                                                                           188 kB/s |  58 kB     00:00    
+(23/26): libvirt-daemon-log-10.10.0-8.3.el10_0.x86_64.rpm                                                                                            206 kB/s |  62 kB     00:00    
+(24/26): libvirt-daemon-plugin-lockd-10.10.0-8.3.el10_0.x86_64.rpm                                                                                   101 kB/s |  32 kB     00:00    
+(25/26): libvirt-daemon-proxy-10.10.0-8.3.el10_0.x86_64.rpm                                                                                          634 kB/s | 204 kB     00:00    
+(26/26): libvirt-libs-10.10.0-8.3.el10_0.x86_64.rpm                                                                                                  4.9 MB/s | 5.1 MB     00:01    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                2.2 MB/s | 8.9 MB     00:04     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                             1/1 
+  Upgrading        : libvirt-libs-10.10.0-8.3.el10_0.x86_64                                                                                                                     1/52 
+  Upgrading        : libvirt-client-10.10.0-8.3.el10_0.x86_64                                                                                                                   2/52 
+  Running scriptlet: libvirt-daemon-common-10.10.0-8.3.el10_0.x86_64                                                                                                            3/52 
+  Upgrading        : libvirt-daemon-common-10.10.0-8.3.el10_0.x86_64                                                                                                            3/52 
+  Running scriptlet: libvirt-daemon-driver-storage-core-10.10.0-8.3.el10_0.x86_64                                                                                               4/52 
+  Upgrading        : libvirt-daemon-driver-storage-core-10.10.0-8.3.el10_0.x86_64                                                                                               4/52 
+  Running scriptlet: libvirt-daemon-driver-network-10.10.0-8.3.el10_0.x86_64                                                                                                    5/52 
+  Upgrading        : libvirt-daemon-driver-network-10.10.0-8.3.el10_0.x86_64                                                                                                    5/52 
+  Running scriptlet: libvirt-daemon-driver-network-10.10.0-8.3.el10_0.x86_64                                                                                                    5/52 
+  Running scriptlet: libvirt-daemon-driver-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                   6/52 
+  Upgrading        : libvirt-daemon-driver-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                   6/52 
+  Running scriptlet: libvirt-daemon-lock-10.10.0-8.3.el10_0.x86_64                                                                                                              7/52 
+  Upgrading        : libvirt-daemon-lock-10.10.0-8.3.el10_0.x86_64                                                                                                              7/52 
+  Running scriptlet: libvirt-daemon-log-10.10.0-8.3.el10_0.x86_64                                                                                                               8/52 
+  Upgrading        : libvirt-daemon-log-10.10.0-8.3.el10_0.x86_64                                                                                                               8/52 
+  Running scriptlet: libvirt-daemon-driver-qemu-10.10.0-8.3.el10_0.x86_64                                                                                                       9/52 
+  Upgrading        : libvirt-daemon-driver-qemu-10.10.0-8.3.el10_0.x86_64                                                                                                       9/52 
+  Upgrading        : libvirt-daemon-plugin-lockd-10.10.0-8.3.el10_0.x86_64                                                                                                     10/52 
+  Running scriptlet: libvirt-daemon-config-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                  11/52 
+  Upgrading        : libvirt-daemon-config-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                  11/52 
+  Running scriptlet: libvirt-daemon-config-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                  11/52 
+  Running scriptlet: libvirt-daemon-config-network-10.10.0-8.3.el10_0.x86_64                                                                                                   12/52 
+  Upgrading        : libvirt-daemon-config-network-10.10.0-8.3.el10_0.x86_64                                                                                                   12/52 
+  Running scriptlet: libvirt-daemon-config-network-10.10.0-8.3.el10_0.x86_64                                                                                                   12/52 
+  Upgrading        : libvirt-daemon-driver-storage-iscsi-10.10.0-8.3.el10_0.x86_64                                                                                             13/52 
+  Upgrading        : libvirt-daemon-driver-storage-disk-10.10.0-8.3.el10_0.x86_64                                                                                              14/52 
+  Upgrading        : libvirt-daemon-driver-storage-logical-10.10.0-8.3.el10_0.x86_64                                                                                           15/52 
+  Upgrading        : libvirt-daemon-driver-storage-mpath-10.10.0-8.3.el10_0.x86_64                                                                                             16/52 
+  Upgrading        : libvirt-daemon-driver-storage-rbd-10.10.0-8.3.el10_0.x86_64                                                                                               17/52 
+  Upgrading        : libvirt-daemon-driver-storage-scsi-10.10.0-8.3.el10_0.x86_64                                                                                              18/52 
+  Upgrading        : libvirt-daemon-driver-storage-10.10.0-8.3.el10_0.x86_64                                                                                                   19/52 
+  Running scriptlet: libvirt-daemon-driver-interface-10.10.0-8.3.el10_0.x86_64                                                                                                 20/52 
+  Upgrading        : libvirt-daemon-driver-interface-10.10.0-8.3.el10_0.x86_64                                                                                                 20/52 
+  Running scriptlet: libvirt-daemon-driver-nodedev-10.10.0-8.3.el10_0.x86_64                                                                                                   21/52 
+  Upgrading        : libvirt-daemon-driver-nodedev-10.10.0-8.3.el10_0.x86_64                                                                                                   21/52 
+  Running scriptlet: libvirt-daemon-driver-secret-10.10.0-8.3.el10_0.x86_64                                                                                                    22/52 
+  Upgrading        : libvirt-daemon-driver-secret-10.10.0-8.3.el10_0.x86_64                                                                                                    22/52 
+  Upgrading        : libvirt-client-qemu-10.10.0-8.3.el10_0.x86_64                                                                                                             23/52 
+  Running scriptlet: libvirt-daemon-proxy-10.10.0-8.3.el10_0.x86_64                                                                                                            24/52 
+  Upgrading        : libvirt-daemon-proxy-10.10.0-8.3.el10_0.x86_64                                                                                                            24/52 
+  Running scriptlet: libvirt-daemon-10.10.0-8.3.el10_0.x86_64                                                                                                                  25/52 
+  Upgrading        : libvirt-daemon-10.10.0-8.3.el10_0.x86_64                                                                                                                  25/52 
+  Upgrading        : libvirt-10.10.0-8.3.el10_0.x86_64                                                                                                                         26/52 
+  Cleanup          : libvirt-10.10.0-8.1.el10_0.x86_64                                                                                                                         27/52 
+  Cleanup          : libvirt-daemon-driver-storage-10.10.0-8.1.el10_0.x86_64                                                                                                   28/52 
+  Running scriptlet: libvirt-daemon-10.10.0-8.1.el10_0.x86_64                                                                                                                  29/52 
+  Cleanup          : libvirt-daemon-10.10.0-8.1.el10_0.x86_64                                                                                                                  29/52 
+  Running scriptlet: libvirt-daemon-driver-qemu-10.10.0-8.1.el10_0.x86_64                                                                                                      30/52 
+  Cleanup          : libvirt-daemon-driver-qemu-10.10.0-8.1.el10_0.x86_64                                                                                                      30/52 
+  Running scriptlet: libvirt-daemon-driver-interface-10.10.0-8.1.el10_0.x86_64                                                                                                 31/52 
+  Cleanup          : libvirt-daemon-driver-interface-10.10.0-8.1.el10_0.x86_64                                                                                                 31/52 
+  Running scriptlet: libvirt-daemon-driver-nodedev-10.10.0-8.1.el10_0.x86_64                                                                                                   32/52 
+  Cleanup          : libvirt-daemon-driver-nodedev-10.10.0-8.1.el10_0.x86_64                                                                                                   32/52 
+  Running scriptlet: libvirt-daemon-driver-secret-10.10.0-8.1.el10_0.x86_64                                                                                                    33/52 
+  Cleanup          : libvirt-daemon-driver-secret-10.10.0-8.1.el10_0.x86_64                                                                                                    33/52 
+  Cleanup          : libvirt-client-qemu-10.10.0-8.1.el10_0.x86_64                                                                                                             34/52 
+  Cleanup          : libvirt-daemon-config-network-10.10.0-8.1.el10_0.x86_64                                                                                                   35/52 
+  Cleanup          : libvirt-daemon-config-nwfilter-10.10.0-8.1.el10_0.x86_64                                                                                                  36/52 
+  Running scriptlet: libvirt-daemon-driver-nwfilter-10.10.0-8.1.el10_0.x86_64                                                                                                  37/52 
+  Cleanup          : libvirt-daemon-driver-nwfilter-10.10.0-8.1.el10_0.x86_64                                                                                                  37/52 
+  Running scriptlet: libvirt-daemon-driver-network-10.10.0-8.1.el10_0.x86_64                                                                                                   38/52 
+  Cleanup          : libvirt-daemon-driver-network-10.10.0-8.1.el10_0.x86_64                                                                                                   38/52 
+  Running scriptlet: libvirt-daemon-driver-network-10.10.0-8.1.el10_0.x86_64                                                                                                   38/52 
+  Running scriptlet: libvirt-daemon-proxy-10.10.0-8.1.el10_0.x86_64                                                                                                            39/52 
+  Cleanup          : libvirt-daemon-proxy-10.10.0-8.1.el10_0.x86_64                                                                                                            39/52 
+  Running scriptlet: libvirt-daemon-log-10.10.0-8.1.el10_0.x86_64                                                                                                              40/52 
+  Cleanup          : libvirt-daemon-log-10.10.0-8.1.el10_0.x86_64                                                                                                              40/52 
+  Cleanup          : libvirt-daemon-plugin-lockd-10.10.0-8.1.el10_0.x86_64                                                                                                     41/52 
+  Running scriptlet: libvirt-daemon-lock-10.10.0-8.1.el10_0.x86_64                                                                                                             42/52 
+  Cleanup          : libvirt-daemon-lock-10.10.0-8.1.el10_0.x86_64                                                                                                             42/52 
+  Cleanup          : libvirt-daemon-driver-storage-scsi-10.10.0-8.1.el10_0.x86_64                                                                                              43/52 
+  Cleanup          : libvirt-daemon-driver-storage-disk-10.10.0-8.1.el10_0.x86_64                                                                                              44/52 
+  Cleanup          : libvirt-daemon-driver-storage-iscsi-10.10.0-8.1.el10_0.x86_64                                                                                             45/52 
+  Cleanup          : libvirt-daemon-driver-storage-logical-10.10.0-8.1.el10_0.x86_64                                                                                           46/52 
+  Cleanup          : libvirt-daemon-driver-storage-mpath-10.10.0-8.1.el10_0.x86_64                                                                                             47/52 
+  Cleanup          : libvirt-daemon-driver-storage-rbd-10.10.0-8.1.el10_0.x86_64                                                                                               48/52 
+  Running scriptlet: libvirt-daemon-driver-storage-core-10.10.0-8.1.el10_0.x86_64                                                                                              49/52 
+  Cleanup          : libvirt-daemon-driver-storage-core-10.10.0-8.1.el10_0.x86_64                                                                                              49/52 
+  Running scriptlet: libvirt-daemon-common-10.10.0-8.1.el10_0.x86_64                                                                                                           50/52 
+  Cleanup          : libvirt-daemon-common-10.10.0-8.1.el10_0.x86_64                                                                                                           50/52 
+  Cleanup          : libvirt-client-10.10.0-8.1.el10_0.x86_64                                                                                                                  51/52 
+  Cleanup          : libvirt-libs-10.10.0-8.1.el10_0.x86_64                                                                                                                    52/52 
+  Running scriptlet: libvirt-daemon-common-10.10.0-8.3.el10_0.x86_64                                                                                                           52/52 
+  Running scriptlet: libvirt-daemon-driver-storage-core-10.10.0-8.3.el10_0.x86_64                                                                                              52/52 
+  Running scriptlet: libvirt-daemon-driver-network-10.10.0-8.3.el10_0.x86_64                                                                                                   52/52 
+  Running scriptlet: libvirt-daemon-driver-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                  52/52 
+  Running scriptlet: libvirt-daemon-lock-10.10.0-8.3.el10_0.x86_64                                                                                                             52/52 
+  Running scriptlet: libvirt-daemon-log-10.10.0-8.3.el10_0.x86_64                                                                                                              52/52 
+  Running scriptlet: libvirt-daemon-driver-qemu-10.10.0-8.3.el10_0.x86_64                                                                                                      52/52 
+  Running scriptlet: libvirt-daemon-config-nwfilter-10.10.0-8.3.el10_0.x86_64                                                                                                  52/52 
+  Running scriptlet: libvirt-daemon-config-network-10.10.0-8.3.el10_0.x86_64                                                                                                   52/52 
+  Running scriptlet: libvirt-daemon-driver-interface-10.10.0-8.3.el10_0.x86_64                                                                                                 52/52 
+  Running scriptlet: libvirt-daemon-driver-nodedev-10.10.0-8.3.el10_0.x86_64                                                                                                   52/52 
+  Running scriptlet: libvirt-daemon-driver-secret-10.10.0-8.3.el10_0.x86_64                                                                                                    52/52 
+  Running scriptlet: libvirt-daemon-proxy-10.10.0-8.3.el10_0.x86_64                                                                                                            52/52 
+  Running scriptlet: libvirt-daemon-10.10.0-8.3.el10_0.x86_64                                                                                                                  52/52 
+  Running scriptlet: libvirt-libs-10.10.0-8.1.el10_0.x86_64                                                                                                                    52/52 
+Installed products updated.
+
+Upgraded:
+  libvirt-10.10.0-8.3.el10_0.x86_64                                                        libvirt-client-10.10.0-8.3.el10_0.x86_64                                                  
+  libvirt-client-qemu-10.10.0-8.3.el10_0.x86_64                                            libvirt-daemon-10.10.0-8.3.el10_0.x86_64                                                  
+  libvirt-daemon-common-10.10.0-8.3.el10_0.x86_64                                          libvirt-daemon-config-network-10.10.0-8.3.el10_0.x86_64                                   
+  libvirt-daemon-config-nwfilter-10.10.0-8.3.el10_0.x86_64                                 libvirt-daemon-driver-interface-10.10.0-8.3.el10_0.x86_64                                 
+  libvirt-daemon-driver-network-10.10.0-8.3.el10_0.x86_64                                  libvirt-daemon-driver-nodedev-10.10.0-8.3.el10_0.x86_64                                   
+  libvirt-daemon-driver-nwfilter-10.10.0-8.3.el10_0.x86_64                                 libvirt-daemon-driver-qemu-10.10.0-8.3.el10_0.x86_64                                      
+  libvirt-daemon-driver-secret-10.10.0-8.3.el10_0.x86_64                                   libvirt-daemon-driver-storage-10.10.0-8.3.el10_0.x86_64                                   
+  libvirt-daemon-driver-storage-core-10.10.0-8.3.el10_0.x86_64                             libvirt-daemon-driver-storage-disk-10.10.0-8.3.el10_0.x86_64                              
+  libvirt-daemon-driver-storage-iscsi-10.10.0-8.3.el10_0.x86_64                            libvirt-daemon-driver-storage-logical-10.10.0-8.3.el10_0.x86_64                           
+  libvirt-daemon-driver-storage-mpath-10.10.0-8.3.el10_0.x86_64                            libvirt-daemon-driver-storage-rbd-10.10.0-8.3.el10_0.x86_64                               
+  libvirt-daemon-driver-storage-scsi-10.10.0-8.3.el10_0.x86_64                             libvirt-daemon-lock-10.10.0-8.3.el10_0.x86_64                                             
+  libvirt-daemon-log-10.10.0-8.3.el10_0.x86_64                                             libvirt-daemon-plugin-lockd-10.10.0-8.3.el10_0.x86_64                                     
+  libvirt-daemon-proxy-10.10.0-8.3.el10_0.x86_64                                           libvirt-libs-10.10.0-8.3.el10_0.x86_64                                                    
+
+Complete!
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install libvirt-python -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:01:14 ago on Wed 06 Aug 2025 01:23:32 PM EDT.
+No match for argument: libvirt-python
+Error: Unable to find a match: libvirt-python
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install libguestfs-tools -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:01:44 ago on Wed 06 Aug 2025 01:23:32 PM EDT.
+Dependencies resolved.
+=====================================================================================================================================================================================
+ Package                                       Architecture                  Version                                  Repository                                                Size
+=====================================================================================================================================================================================
+Installing:
+ virt-win-reg                                  noarch                        1.52.2-2.el10                            rhel-10-for-x86_64-appstream-rpms                         34 k
+Installing dependencies:
+ perl-Class-Inspector                          noarch                        1.36-19.el10                             rhel-10-for-x86_64-appstream-rpms                         34 k
+ perl-Exporter-Tiny                            noarch                        1.006002-7.el10                          rhel-10-for-x86_64-appstream-rpms                         58 k
+ perl-List-MoreUtils-XS                        x86_64                        0.430-18.el10                            rhel-10-for-x86_64-appstream-rpms                         69 k
+ perl-Sys-Guestfs                              x86_64                        1:1.54.0-5.el10                          rhel-10-for-x86_64-appstream-rpms                        290 k
+ perl-hivex                                    x86_64                        1.3.24-2.el10                            rhel-10-for-x86_64-appstream-rpms                         51 k
+ perl-libintl-perl                             x86_64                        1.33-11.el10                             rhel-10-for-x86_64-appstream-rpms                        839 k
+Installing weak dependencies:
+ perl-File-ShareDir                            noarch                        1.118-14.el10                            rhel-10-for-x86_64-appstream-rpms                         35 k
+ perl-List-MoreUtils                           noarch                        0.430-15.el10                            rhel-10-for-x86_64-appstream-rpms                         66 k
+ perl-Params-Util                              x86_64                        1.102-19.el10                            rhel-10-for-x86_64-appstream-rpms                         37 k
+
+Transaction Summary
+=====================================================================================================================================================================================
+Install  10 Packages
+
+Total download size: 1.5 M
+Installed size: 5.9 M
+Downloading Packages:
+(1/10): virt-win-reg-1.52.2-2.el10.noarch.rpm                                                                                                         10 kB/s |  34 kB     00:03    
+(2/10): perl-Sys-Guestfs-1.54.0-5.el10.x86_64.rpm                                                                                                     82 kB/s | 290 kB     00:03    
+(3/10): perl-File-ShareDir-1.118-14.el10.noarch.rpm                                                                                                  111 kB/s |  35 kB     00:00    
+(4/10): perl-Exporter-Tiny-1.006002-7.el10.noarch.rpm                                                                                                 11 kB/s |  58 kB     00:05    
+(5/10): perl-hivex-1.3.24-2.el10.x86_64.rpm                                                                                                           16 kB/s |  51 kB     00:03    
+(6/10): perl-List-MoreUtils-XS-0.430-18.el10.x86_64.rpm                                                                                               22 kB/s |  69 kB     00:03    
+(7/10): perl-Params-Util-1.102-19.el10.x86_64.rpm                                                                                                    119 kB/s |  37 kB     00:00    
+(8/10): perl-List-MoreUtils-0.430-15.el10.noarch.rpm                                                                                                  20 kB/s |  66 kB     00:03    
+(9/10): perl-libintl-perl-1.33-11.el10.x86_64.rpm                                                                                                    215 kB/s | 839 kB     00:03    
+(10/10): perl-Class-Inspector-1.36-19.el10.noarch.rpm                                                                                                6.2 kB/s |  34 kB     00:05    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                122 kB/s | 1.5 MB     00:12     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                             1/1 
+  Installing       : perl-Class-Inspector-1.36-19.el10.noarch                                                                                                                   1/10 
+  Installing       : perl-Params-Util-1.102-19.el10.x86_64                                                                                                                      2/10 
+  Installing       : perl-hivex-1.3.24-2.el10.x86_64                                                                                                                            3/10 
+  Installing       : perl-List-MoreUtils-XS-0.430-18.el10.x86_64                                                                                                                4/10 
+  Installing       : perl-Exporter-Tiny-1.006002-7.el10.noarch                                                                                                                  5/10 
+  Installing       : perl-List-MoreUtils-0.430-15.el10.noarch                                                                                                                   6/10 
+  Installing       : perl-File-ShareDir-1.118-14.el10.noarch                                                                                                                    7/10 
+  Installing       : perl-libintl-perl-1.33-11.el10.x86_64                                                                                                                      8/10 
+  Installing       : perl-Sys-Guestfs-1:1.54.0-5.el10.x86_64                                                                                                                    9/10 
+  Installing       : virt-win-reg-1.52.2-2.el10.noarch                                                                                                                         10/10 
+  Running scriptlet: virt-win-reg-1.52.2-2.el10.noarch                                                                                                                         10/10 
+Installed products updated.
+
+Installed:
+  perl-Class-Inspector-1.36-19.el10.noarch       perl-Exporter-Tiny-1.006002-7.el10.noarch    perl-File-ShareDir-1.118-14.el10.noarch    perl-List-MoreUtils-0.430-15.el10.noarch   
+  perl-List-MoreUtils-XS-0.430-18.el10.x86_64    perl-Params-Util-1.102-19.el10.x86_64        perl-Sys-Guestfs-1:1.54.0-5.el10.x86_64    perl-hivex-1.3.24-2.el10.x86_64            
+  perl-libintl-perl-1.33-11.el10.x86_64          virt-win-reg-1.52.2-2.el10.noarch           
+
+Complete!
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install virt-manager -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:02:18 ago on Wed 06 Aug 2025 01:23:32 PM EDT.
+Dependencies resolved.
+=====================================================================================================================================================================================
+ Package                                 Architecture                Version                                    Repository                                                      Size
+=====================================================================================================================================================================================
+Installing:
+ virt-manager                            noarch                      5.0.0-1.el10                               codeready-builder-for-rhel-10-x86_64-rpms                      727 k
+Installing dependencies:
+ libvirt-ssh-proxy                       x86_64                      10.10.0-8.3.el10_0                         rhel-10-for-x86_64-appstream-rpms                               28 k
+Installing weak dependencies:
+ libvirt-daemon-kvm                      x86_64                      10.10.0-8.3.el10_0                         rhel-10-for-x86_64-appstream-rpms                               16 k
+
+Transaction Summary
+=====================================================================================================================================================================================
+Install  3 Packages
+
+Total download size: 771 k
+Installed size: 3.5 M
+Downloading Packages:
+(1/3): libvirt-ssh-proxy-10.10.0-8.3.el10_0.x86_64.rpm                                                                                                64 kB/s |  28 kB     00:00    
+(2/3): libvirt-daemon-kvm-10.10.0-8.3.el10_0.x86_64.rpm                                                                                               35 kB/s |  16 kB     00:00    
+(3/3): virt-manager-5.0.0-1.el10.noarch.rpm                                                                                                          227 kB/s | 727 kB     00:03    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                241 kB/s | 771 kB     00:03     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                             1/1 
+  Installing       : libvirt-ssh-proxy-10.10.0-8.3.el10_0.x86_64                                                                                                                 1/3 
+  Installing       : libvirt-daemon-kvm-10.10.0-8.3.el10_0.x86_64                                                                                                                2/3 
+  Installing       : virt-manager-5.0.0-1.el10.noarch                                                                                                                            3/3 
+  Running scriptlet: virt-manager-5.0.0-1.el10.noarch                                                                                                                            3/3 
+Installed products updated.
+
+Installed:
+  libvirt-daemon-kvm-10.10.0-8.3.el10_0.x86_64                    libvirt-ssh-proxy-10.10.0-8.3.el10_0.x86_64                    virt-manager-5.0.0-1.el10.noarch                   
+
+Complete!
+root@192:~# 
+root@192:~# 
+root@192:~# systemctl enable --now libvirt
+Failed to enable unit: Unit libvirt.service does not exist
+root@192:~# 
+root@192:~# dnf install -y qemu-kvm libvirt virt-install bridge-utils virt-manager
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:03:48 ago on Wed 06 Aug 2025 01:23:32 PM EDT.
+Package qemu-kvm-18:9.1.0-15.el10_0.2.x86_64 is already installed.
+Package libvirt-10.10.0-8.3.el10_0.x86_64 is already installed.
+Package virt-install-5.0.0-1.el10.noarch is already installed.
+No match for argument: bridge-utils
+Package virt-manager-5.0.0-1.el10.noarch is already installed.
+Error: Unable to find a match: bridge-utils
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install nmcli -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:05:07 ago on Wed 06 Aug 2025 01:23:32 PM EDT.
+No match for argument: nmcli
+Error: Unable to find a match: nmcli
+root@192:~# 
+root@192:~# 
+root@192:~# nmcli connection add type bridge con-name br0 ifname br0
+Connection 'br0' (8519ff9e-5c50-42cc-a30e-73709806273b) successfully added.
+root@192:~# 
+root@192:~# 
+root@192:~# nmcli connection add type ethernet con-name bridge-slave0 ifname eth0 master br0
+Connection 'bridge-slave0' (99db7926-9d6f-4819-a64a-c37315e88217) successfully added.
+root@192:~# 
+root@192:~# 
+root@192:~# nmcli connection up br0
+Connection successfully activated (controller waiting for ports) (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
+root@192:~# 
+root@192:~# systemctl enable --now libvirtd
+Created symlink '/etc/systemd/system/multi-user.target.wants/libvirtd.service' → '/usr/lib/systemd/system/libvirtd.service'.
+Created symlink '/etc/systemd/system/sockets.target.wants/libvirtd.socket' → '/usr/lib/systemd/system/libvirtd.socket'.
+Created symlink '/etc/systemd/system/sockets.target.wants/libvirtd-ro.socket' → '/usr/lib/systemd/system/libvirtd-ro.socket'.
+Created symlink '/etc/systemd/system/sockets.target.wants/libvirtd-admin.socket' → '/usr/lib/systemd/system/libvirtd-admin.socket'.
+root@192:~# 
+root@192:~# 
+root@192:~# systemctl status lib
+libstoragemgmt.service  libvirtd-ro.socket      libvirtd.socket         libvirtd-tls.socket     
+libvirtd-admin.socket   libvirtd.service        libvirtd-tcp.socket     libvirt-guests.service  
+root@192:~# systemctl status libvirt
+Unit libvirt.service could not be found.
+root@192:~# 
+root@192:~# 
+root@192:~# systemctl status libvirtd
+● libvirtd.service - libvirt legacy monolithic daemon
+     Loaded: loaded (/usr/lib/systemd/system/libvirtd.service; enabled; preset: disabled)
+     Active: active (running) since Wed 2025-08-06 13:29:32 EDT; 39s ago
+ Invocation: 83de91a4199e490c8a2c8ac0ad97803a
+TriggeredBy: ● libvirtd-ro.socket
+             ● libvirtd.socket
+             ● libvirtd-admin.socket
+       Docs: man:libvirtd(8)
+             https://libvirt.org/
+   Main PID: 14282 (libvirtd)
+      Tasks: 23 (limit: 32768)
+     Memory: 22.4M (peak: 23.4M)
+        CPU: 936ms
+     CGroup: /system.slice/libvirtd.service
+             ├─14282 /usr/sbin/libvirtd --timeout 120
+             ├─14357 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/libexec/libvirt_leaseshelper
+             └─14358 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/libexec/libvirt_leaseshelper
+
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset no-nftset auth cryptohash DNSSEC lo>
+Aug 06 13:29:32 192.168.1.5 dnsmasq-dhcp[14357]: DHCP, IP range 192.168.122.2 -- 192.168.122.254, lease time 1h
+Aug 06 13:29:32 192.168.1.5 dnsmasq-dhcp[14357]: DHCP, sockets bound exclusively to interface virbr0
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: reading /etc/resolv.conf
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: using nameserver 192.168.1.1#53
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: using nameserver 2401:4900:50:9::280#53
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: using nameserver 2401:4900:50:9::9#53
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: read /etc/hosts - 8 names
+Aug 06 13:29:32 192.168.1.5 dnsmasq[14357]: read /var/lib/libvirt/dnsmasq/default.addnhosts - 0 names
+Aug 06 13:29:32 192.168.1.5 dnsmasq-dhcp[14357]: read /var/lib/libvirt/dnsmasq/default.hostsfile
+
+root@192:~# 
+root@192:~# 
+root@192:~# lsmod | grep kvm
+kvm_intel             446464  0
+kvm                  1400832  1 kvm_intel
+root@192:~# 
+root@192:~# 
+root@192:~# lsmod | grep kvm
+kvm_intel             446464  0
+kvm                  1400832  1 kvm_intel
+root@192:~# virsh list --all
+ Id   Name   State
+--------------------
+
+root@192:~# 
+root@192:~# 
+root@192:~# virt-install \
+> ^C
+root@192:~# 
+root@192:~# 
+oot@192:~# 
+root@192:~# 
+root@192:~# 
+root@192:~# uname -a
+Linux 192.168.1.5 6.12.0-55.25.1.el10_0.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Jul 28 08:15:40 EDT 2025 x86_64 GNU/Linux
+root@192:~# 
+root@192:~# virsh --version
+10.10.0
+root@192:~# 
+root@192:~# 
+root@192:~# 
+root@192:~# virsh list --all
+ Id   Name           State
+------------------------------
+ 1    centos7.0      running
+ 6    opensuse15.5   running
+
+root@192:~# 
+root@192:~# virt-manager
+root@192:~# 
+
+use virt manager to deploye new VMs
