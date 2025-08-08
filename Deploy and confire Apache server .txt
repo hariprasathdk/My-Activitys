@@ -1,0 +1,360 @@
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install httpd* -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 1:40:01 ago on Fri 08 Aug 2025 11:54:07 AM EDT.
+Package httpd-2.4.63-1.el10.x86_64 is already installed.
+Package httpd-core-2.4.63-1.el10.x86_64 is already installed.
+Package httpd-filesystem-2.4.63-1.el10.noarch is already installed.
+Package httpd-manual-2.4.63-1.el10.noarch is already installed.
+Package httpd-tools-2.4.63-1.el10.x86_64 is already installed.
+Dependencies resolved.
+=========================================================================================================================================================================
+ Package                                Architecture                 Version                               Repository                                               Size
+=========================================================================================================================================================================
+Installing:
+ httpd-devel                            x86_64                       2.4.63-1.el10                         rhel-10-for-x86_64-appstream-rpms                       213 k
+Installing dependencies:
+ apr-devel                              x86_64                       1.7.5-2.el10                          rhel-10-for-x86_64-appstream-rpms                       239 k
+ apr-util-devel                         x86_64                       1.6.3-21.el10                         rhel-10-for-x86_64-appstream-rpms                        81 k
+ cyrus-sasl-devel                       x86_64                       2.1.28-27.el10                        rhel-10-for-x86_64-appstream-rpms                       117 k
+ expat-devel                            x86_64                       2.7.1-1.el10_0                        rhel-10-for-x86_64-appstream-rpms                        59 k
+ openldap-devel                         x86_64                       2.6.8-3.el10                          rhel-10-for-x86_64-appstream-rpms                       751 k
+
+Transaction Summary
+=========================================================================================================================================================================
+Install  6 Packages
+
+Total download size: 1.4 M
+Installed size: 6.4 M
+Downloading Packages:
+(1/6): cyrus-sasl-devel-2.1.28-27.el10.x86_64.rpm                                                                                        202 kB/s | 117 kB     00:00    
+(2/6): apr-devel-1.7.5-2.el10.x86_64.rpm                                                                                                 397 kB/s | 239 kB     00:00    
+(3/6): openldap-devel-2.6.8-3.el10.x86_64.rpm                                                                                            1.5 MB/s | 751 kB     00:00    
+(4/6): apr-util-devel-1.6.3-21.el10.x86_64.rpm                                                                                            27 kB/s |  81 kB     00:03    
+(5/6): httpd-devel-2.4.63-1.el10.x86_64.rpm                                                                                               63 kB/s | 213 kB     00:03    
+(6/6): expat-devel-2.7.1-1.el10_0.x86_64.rpm                                                                                              19 kB/s |  59 kB     00:03    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                    346 kB/s | 1.4 MB     00:04     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                 1/1 
+  Installing       : apr-devel-1.7.5-2.el10.x86_64                                                                                                                   1/6 
+  Installing       : expat-devel-2.7.1-1.el10_0.x86_64                                                                                                               2/6 
+  Installing       : cyrus-sasl-devel-2.1.28-27.el10.x86_64                                                                                                          3/6 
+  Installing       : openldap-devel-2.6.8-3.el10.x86_64                                                                                                              4/6 
+  Installing       : apr-util-devel-1.6.3-21.el10.x86_64                                                                                                             5/6 
+  Installing       : httpd-devel-2.4.63-1.el10.x86_64                                                                                                                6/6 
+  Running scriptlet: httpd-devel-2.4.63-1.el10.x86_64                                                                                                                6/6 
+Installed products updated.
+
+Installed:
+  apr-devel-1.7.5-2.el10.x86_64          apr-util-devel-1.6.3-21.el10.x86_64       cyrus-sasl-devel-2.1.28-27.el10.x86_64       expat-devel-2.7.1-1.el10_0.x86_64      
+  httpd-devel-2.4.63-1.el10.x86_64       openldap-devel-2.6.8-3.el10.x86_64       
+
+Complete!
+root@192:~# 
+root@192:~# vi /etc/httpd/conf/httpd.conf 
+root@192:~# 
+root@192:~# mkdir /var/www/nux
+root@192:~# 
+root@192:~# cd /var/www/nux/
+root@192:/var/www/nux# 
+root@192:/var/www/nux# vi index.html
+root@192:/var/www/nux# 
+root@192:/var/www/nux# cd
+root@192:~# 
+root@192:~# 
+root@192:~# vi /etc/hosts
+root@192:~# 
+root@192:~# 
+root@192:~# service httpd restart
+Redirecting to /bin/systemctl restart httpd.service
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+root@192:~# 
+root@192:~# 
+root@192:~# systemctl status httpd
+× httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; preset: disabled)
+    Drop-In: /etc/systemd/system/httpd.service.d
+             └─php-fpm.conf
+     Active: failed (Result: exit-code) since Fri 2025-08-08 13:42:35 EDT; 30s ago
+   Duration: 1h 55min 17.838s
+ Invocation: 110ae03fba2847b790fce2dc21da6e74
+       Docs: man:httpd.service(8)
+    Process: 19401 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+   Main PID: 19401 (code=exited, status=1/FAILURE)
+     Status: "Reading configuration..."
+   Mem peak: 3.3M
+        CPU: 201ms
+
+Aug 08 13:42:35 192.168.1.5 systemd[1]: Starting httpd.service - The Apache HTTP Server...
+Aug 08 13:42:35 192.168.1.5 (httpd)[19401]: httpd.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+Aug 08 13:42:35 192.168.1.5 httpd[19401]: AH00548: NameVirtualHost has no effect and will be removed in the next release /etc/httpd/conf/httpd.conf:360
+Aug 08 13:42:35 192.168.1.5 httpd[19401]: AH00526: Syntax error on line 361 of /etc/httpd/conf/httpd.conf:
+Aug 08 13:42:35 192.168.1.5 httpd[19401]: <VirtualHost> directive missing closing '>'
+Aug 08 13:42:35 192.168.1.5 systemd[1]: httpd.service: Main process exited, code=exited, status=1/FAILURE
+Aug 08 13:42:35 192.168.1.5 systemd[1]: httpd.service: Failed with result 'exit-code'.
+Aug 08 13:42:35 192.168.1.5 systemd[1]: Failed to start httpd.service - The Apache HTTP Server.
+root@192:~# 
+root@192:~# systemctl enable httpd
+root@192:~# 
+root@192:~# systemctl status httpd
+× httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; preset: disabled)
+    Drop-In: /etc/systemd/system/httpd.service.d
+             └─php-fpm.conf
+     Active: failed (Result: exit-code) since Fri 2025-08-08 13:42:35 EDT; 55s ago
+   Duration: 1h 55min 17.838s
+ Invocation: 110ae03fba2847b790fce2dc21da6e74
+       Docs: man:httpd.service(8)
+   Main PID: 19401 (code=exited, status=1/FAILURE)
+     Status: "Reading configuration..."
+   Mem peak: 3.3M
+        CPU: 201ms
+
+Aug 08 13:42:35 192.168.1.5 systemd[1]: Starting httpd.service - The Apache HTTP Server...
+Aug 08 13:42:35 192.168.1.5 (httpd)[19401]: httpd.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+Aug 08 13:42:35 192.168.1.5 httpd[19401]: AH00548: NameVirtualHost has no effect and will be removed in the next release /etc/httpd/conf/httpd.conf:360
+Aug 08 13:42:35 192.168.1.5 httpd[19401]: AH00526: Syntax error on line 361 of /etc/httpd/conf/httpd.conf:
+Aug 08 13:42:35 192.168.1.5 httpd[19401]: <VirtualHost> directive missing closing '>'
+Aug 08 13:42:35 192.168.1.5 systemd[1]: httpd.service: Main process exited, code=exited, status=1/FAILURE
+Aug 08 13:42:35 192.168.1.5 systemd[1]: httpd.service: Failed with result 'exit-code'.
+Aug 08 13:42:35 192.168.1.5 systemd[1]: Failed to start httpd.service - The Apache HTTP Server.
+root@192:~# 
+root@192:~# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+root@192:~# 
+root@192:~# tail -n 50 /var/log/httpd/error_log
+[Mon Aug 04 13:12:25.897361 2025] [core:notice] [pid 16697:tid 16697] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Mon Aug 04 13:16:55.678794 2025] [mpm_event:notice] [pid 16697:tid 16697] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon Aug 04 21:07:34.414664 2025] [suexec:notice] [pid 1576:tid 1576] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using localhost.localdomain. Set the 'ServerName' directive globally to suppress this message
+[Mon Aug 04 21:07:34.482328 2025] [lbmethod_heartbeat:notice] [pid 1576:tid 1576] AH02282: No slotmem from mod_heartmonitor
+[Mon Aug 04 21:07:34.491818 2025] [systemd:notice] [pid 1576:tid 1576] SELinux policy enabled; httpd running as context system_u:system_r:httpd_t:s0
+[Mon Aug 04 21:07:34.500815 2025] [mpm_event:notice] [pid 1576:tid 1576] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Mon Aug 04 21:07:34.500868 2025] [core:notice] [pid 1576:tid 1576] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Mon Aug 04 21:35:46.641117 2025] [suexec:notice] [pid 1365:tid 1365] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Mon Aug 04 21:35:46.679269 2025] [lbmethod_heartbeat:notice] [pid 1365:tid 1365] AH02282: No slotmem from mod_heartmonitor
+[Mon Aug 04 21:35:46.682820 2025] [systemd:notice] [pid 1365:tid 1365] SELinux policy enabled; httpd running as context system_u:system_r:httpd_t:s0
+[Mon Aug 04 21:35:46.688920 2025] [mpm_event:notice] [pid 1365:tid 1365] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Mon Aug 04 21:35:46.688964 2025] [core:notice] [pid 1365:tid 1365] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Mon Aug 04 22:29:50.942881 2025] [mpm_event:notice] [pid 1365:tid 1365] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon Aug 04 22:30:28.861373 2025] [suexec:notice] [pid 1340:tid 1340] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using localhost.localdomain. Set the 'ServerName' directive globally to suppress this message
+[Mon Aug 04 22:30:28.916889 2025] [lbmethod_heartbeat:notice] [pid 1340:tid 1340] AH02282: No slotmem from mod_heartmonitor
+[Mon Aug 04 22:30:28.940210 2025] [mpm_event:notice] [pid 1340:tid 1340] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Mon Aug 04 22:30:28.940261 2025] [core:notice] [pid 1340:tid 1340] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Tue Aug 05 12:34:56.691650 2025] [suexec:notice] [pid 1362:tid 1362] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using localhost.localdomain. Set the 'ServerName' directive globally to suppress this message
+[Tue Aug 05 12:34:56.733312 2025] [lbmethod_heartbeat:notice] [pid 1362:tid 1362] AH02282: No slotmem from mod_heartmonitor
+[Tue Aug 05 12:34:56.743915 2025] [mpm_event:notice] [pid 1362:tid 1362] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Tue Aug 05 12:34:56.743954 2025] [core:notice] [pid 1362:tid 1362] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Tue Aug 05 13:14:25.893322 2025] [mpm_event:notice] [pid 1362:tid 1362] AH00492: caught SIGWINCH, shutting down gracefully
+[Wed Aug 06 07:33:17.855443 2025] [suexec:notice] [pid 1351:tid 1351] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using localhost.localdomain. Set the 'ServerName' directive globally to suppress this message
+[Wed Aug 06 07:33:17.919388 2025] [lbmethod_heartbeat:notice] [pid 1351:tid 1351] AH02282: No slotmem from mod_heartmonitor
+[Wed Aug 06 07:33:17.950753 2025] [mpm_event:notice] [pid 1351:tid 1351] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Wed Aug 06 07:33:17.950805 2025] [core:notice] [pid 1351:tid 1351] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Aug 06 13:37:57.253578 2025] [mpm_event:notice] [pid 1351:tid 1351] AH00492: caught SIGWINCH, shutting down gracefully
+[Wed Aug 06 13:43:49.407372 2025] [suexec:notice] [pid 1376:tid 1376] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Aug 06 13:43:49.489697 2025] [lbmethod_heartbeat:notice] [pid 1376:tid 1376] AH02282: No slotmem from mod_heartmonitor
+[Wed Aug 06 13:43:49.505767 2025] [mpm_event:notice] [pid 1376:tid 1376] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Wed Aug 06 13:43:49.505815 2025] [core:notice] [pid 1376:tid 1376] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Aug 06 14:57:16.941593 2025] [mpm_event:notice] [pid 1376:tid 1376] AH00492: caught SIGWINCH, shutting down gracefully
+[Thu Aug 07 06:16:26.511553 2025] [suexec:notice] [pid 1390:tid 1390] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Thu Aug 07 06:16:26.586057 2025] [lbmethod_heartbeat:notice] [pid 1390:tid 1390] AH02282: No slotmem from mod_heartmonitor
+[Thu Aug 07 06:16:26.609598 2025] [mpm_event:notice] [pid 1390:tid 1390] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Thu Aug 07 06:16:26.609669 2025] [core:notice] [pid 1390:tid 1390] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Thu Aug 07 08:27:31.358548 2025] [suexec:notice] [pid 1376:tid 1376] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Thu Aug 07 08:27:31.425864 2025] [lbmethod_heartbeat:notice] [pid 1376:tid 1376] AH02282: No slotmem from mod_heartmonitor
+[Thu Aug 07 08:27:31.436322 2025] [mpm_event:notice] [pid 1376:tid 1376] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Thu Aug 07 08:27:31.436361 2025] [core:notice] [pid 1376:tid 1376] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Thu Aug 07 14:07:13.441062 2025] [mpm_event:notice] [pid 1376:tid 1376] AH00492: caught SIGWINCH, shutting down gracefully
+[Fri Aug 08 11:47:16.467479 2025] [suexec:notice] [pid 1392:tid 1392] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Fri Aug 08 11:47:16.564682 2025] [lbmethod_heartbeat:notice] [pid 1392:tid 1392] AH02282: No slotmem from mod_heartmonitor
+[Fri Aug 08 11:47:16.607482 2025] [mpm_event:notice] [pid 1392:tid 1392] AH00489: Apache/2.4.63 (Red Hat Enterprise Linux) OpenSSL/3.2.2 mod_fcgid/2.3.9 configured -- resuming normal operations
+[Fri Aug 08 11:47:16.607536 2025] [core:notice] [pid 1392:tid 1392] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Fri Aug 08 13:42:34.415598 2025] [mpm_event:notice] [pid 1392:tid 1392] AH00492: caught SIGWINCH, shutting down gracefully
+root@192:~# 
+root@192:~# systemctl status httpd.service -l --no-pager
+× httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; preset: disabled)
+    Drop-In: /etc/systemd/system/httpd.service.d
+             └─php-fpm.conf
+     Active: failed (Result: exit-code) since Fri 2025-08-08 13:43:49 EDT; 3min 29s ago
+   Duration: 1h 55min 17.838s
+ Invocation: ead3624b5e2949df819e48cc18143db2
+       Docs: man:httpd.service(8)
+    Process: 19691 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+   Main PID: 19691 (code=exited, status=1/FAILURE)
+     Status: "Reading configuration..."
+   Mem peak: 3.3M
+        CPU: 221ms
+
+Aug 08 13:43:49 192.168.1.5 systemd[1]: Starting httpd.service - The Apache HTTP Server...
+Aug 08 13:43:49 192.168.1.5 (httpd)[19691]: httpd.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+Aug 08 13:43:49 192.168.1.5 httpd[19691]: AH00548: NameVirtualHost has no effect and will be removed in the next release /etc/httpd/conf/httpd.conf:360
+Aug 08 13:43:49 192.168.1.5 httpd[19691]: AH00526: Syntax error on line 361 of /etc/httpd/conf/httpd.conf:
+Aug 08 13:43:49 192.168.1.5 httpd[19691]: <VirtualHost> directive missing closing '>'
+Aug 08 13:43:49 192.168.1.5 systemd[1]: httpd.service: Main process exited, code=exited, status=1/FAILURE
+Aug 08 13:43:49 192.168.1.5 systemd[1]: httpd.service: Failed with result 'exit-code'.
+Aug 08 13:43:49 192.168.1.5 systemd[1]: Failed to start httpd.service - The Apache HTTP Server.
+root@192:~# 
+root@192:~# firewall-cmd --permanent --add-service=http
+Warning: ALREADY_ENABLED: http
+success
+root@192:~# 
+root@192:~# firewall-cmd --reload
+success
+root@192:~# 
+root@192:~# firewall-cmd --permanent --add-service=80
+Error: INVALID_SERVICE: Zone 'public': '80' not among existing services
+root@192:~# 
+root@192:~# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+root@192:~# 
+root@192:~# 
+root@192:~# systemctl restart httpd.service 
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+root@192:~# 
+root@192:~# vi /etc/hosts
+root@192:~# 
+root@192:~# vi /etc/httpd/conf/httpd.conf 
+root@192:~# 
+root@192:~# 
+root@192:~# apachectl configtest
+AH00526: Syntax error on line 360 of /etc/httpd/conf/httpd.conf:
+<VirtualHost> directive missing closing '>'
+root@192:~# 
+root@192:~# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+root@192:~# 
+root@192:~# vi /etc/httpd/conf/httpd.conf 
+root@192:~# 
+root@192:~# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code.
+See "systemctl status httpd.service" and "journalctl -xeu httpd.service" for details.
+root@192:~# 
+root@192:~# apachectl configtest
+AH00526: Syntax error on line 360 of /etc/httpd/conf/httpd.conf:
+<VirtualHost> directive missing closing '>'
+root@192:~# 
+root@192:~# vi /etc/httpd/conf/httpd.conf 
+root@192:~# 
+root@192:~# systemctl restart httpd
+root@192:~# 
+root@192:~# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; preset: disabled)
+    Drop-In: /etc/systemd/system/httpd.service.d
+             └─php-fpm.conf
+     Active: active (running) since Fri 2025-08-08 13:56:10 EDT; 11s ago
+ Invocation: 0355d384bfe54b348ae754e823c710b0
+       Docs: man:httpd.service(8)
+   Main PID: 20929 (httpd)
+     Status: "Total requests: 0; Idle/Busy workers 100/0;Requests/sec: 0; Bytes served/sec:   0 B/sec"
+      Tasks: 178 (limit: 47512)
+     Memory: 16.7M (peak: 17.1M)
+        CPU: 281ms
+     CGroup: /system.slice/httpd.service
+             ├─20929 /usr/sbin/httpd -DFOREGROUND
+             ├─20930 /usr/sbin/httpd -DFOREGROUND
+             ├─20931 /usr/sbin/httpd -DFOREGROUND
+             ├─20932 /usr/sbin/httpd -DFOREGROUND
+             ├─20933 /usr/sbin/httpd -DFOREGROUND
+             └─20935 /usr/sbin/httpd -DFOREGROUND
+
+Aug 08 13:56:09 192.168.1.5 systemd[1]: Starting httpd.service - The Apache HTTP Server...
+Aug 08 13:56:10 192.168.1.5 (httpd)[20929]: httpd.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+Aug 08 13:56:10 192.168.1.5 httpd[20929]: Server configured, listening on: port 443, port 80
+Aug 08 13:56:10 192.168.1.5 systemd[1]: Started httpd.service - The Apache HTTP Server.
+root@192:~# 
+root@192:~# systemctl enable --now httpd
+root@192:~# 
+root@192:~# 
+root@192:~# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; preset: disabled)
+    Drop-In: /etc/systemd/system/httpd.service.d
+             └─php-fpm.conf
+     Active: active (running) since Fri 2025-08-08 13:56:10 EDT; 39s ago
+ Invocation: 0355d384bfe54b348ae754e823c710b0
+       Docs: man:httpd.service(8)
+   Main PID: 20929 (httpd)
+     Status: "Total requests: 0; Idle/Busy workers 100/0;Requests/sec: 0; Bytes served/sec:   0 B/sec"
+      Tasks: 178 (limit: 47512)
+     Memory: 16.7M (peak: 17.1M)
+        CPU: 325ms
+     CGroup: /system.slice/httpd.service
+             ├─20929 /usr/sbin/httpd -DFOREGROUND
+             ├─20930 /usr/sbin/httpd -DFOREGROUND
+             ├─20931 /usr/sbin/httpd -DFOREGROUND
+             ├─20932 /usr/sbin/httpd -DFOREGROUND
+             ├─20933 /usr/sbin/httpd -DFOREGROUND
+             └─20935 /usr/sbin/httpd -DFOREGROUND
+
+Aug 08 13:56:09 192.168.1.5 systemd[1]: Starting httpd.service - The Apache HTTP Server...
+Aug 08 13:56:10 192.168.1.5 (httpd)[20929]: httpd.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+Aug 08 13:56:10 192.168.1.5 httpd[20929]: Server configured, listening on: port 443, port 80
+Aug 08 13:56:10 192.168.1.5 systemd[1]: Started httpd.service - The Apache HTTP Server.
+root@192:~# 
+root@192:~# service httpd restart
+Redirecting to /bin/systemctl restart httpd.service
+root@192:~# 
+root@192:~# 
+root@192:~# cd D
+Desktop/   Documents/ Downloads/ 
+root@192:~# cd Downloads/
+root@192:~/Downloads# 
+root@192:~/Downloads# ls
+ CentOS-7-x86_64-Minimal-2009.iso   google-chrome-stable_current_x86_64.rpm              openSUSE-Leap-15.5-DVD-x86_64-Current.iso
+ cot.html                          'hypervisor deployement and new VM deployement.txt'
+root@192:~/Downloads# 
+root@192:~/Downloads# 
+root@192:~/Downloads# cat cot.html 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cotmat Cluthing</title>
+</head>
+<body>
+    <h1 style="color: blue;">cotmat cluthing</h1>
+    <h2 style="color: red;">welcome to cot map</h2>
+    <p style="color: black;">wear your tending collections</p>
+</body>
+</html>
+root@192:~/Downloads# 
+root@192:~/Downloads# cd
+root@192:~# 
+root@192:~# vi index.html
+root@192:~# 
+root@192:~# cd /var/www/nux/
+root@192:/var/www/nux# 
+root@192:/var/www/nux# ls
+index.html
+root@192:/var/www/nux# 
+root@192:/var/www/nux# vi index.html 
+root@192:/var/www/nux# 
+root@192:/var/www/nux# systemctl service restart
+Unknown command verb 'service', did you mean 'service-log-level'?
+root@192:/var/www/nux# 
+root@192:/var/www/nux# systemctl restart httpd
+root@192:/var/www/nux# 
+root@192:/var/www/nux# 
+root@192:/var/www/nux# service restart httpd
+The service command supports only basic LSB actions (start, stop, restart, try-restart, reload, reload-or-restart, try-reload-or-restart, force-reload, status, condrestart). For other actions, please try to use systemctl.
+root@192:/var/www/nux# 
+root@192:/var/www/nux# cd
+root@192:~# 
+root@192:~# service httpd restart
+Redirecting to /bin/systemctl restart httpd.service
+root@192:~# 
