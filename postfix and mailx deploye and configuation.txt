@@ -1,0 +1,147 @@
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install postfix* -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 3:00:29 ago on Sun 10 Aug 2025 07:21:36 PM IST.
+Package postfix-2:3.8.5-8.el10.x86_64 is already installed.
+Package postfix-lmdb-2:3.8.5-8.el10.x86_64 is already installed.
+Package postfix-perl-scripts-2:3.8.5-8.el10.x86_64 is already installed.
+Dependencies resolved.
+=====================================================================================================================================================
+ Package                         Architecture            Version                            Repository                                          Size
+=====================================================================================================================================================
+Installing:
+ postfix-cdb                     x86_64                  2:3.8.5-8.el10                     rhel-10-for-x86_64-appstream-rpms                   21 k
+ postfix-ldap                    x86_64                  2:3.8.5-8.el10                     rhel-10-for-x86_64-appstream-rpms                   44 k
+ postfix-mysql                   x86_64                  2:3.8.5-8.el10                     rhel-10-for-x86_64-appstream-rpms                   30 k
+ postfix-pcre                    x86_64                  2:3.8.5-8.el10                     rhel-10-for-x86_64-appstream-rpms                   27 k
+ postfix-pgsql                   x86_64                  2:3.8.5-8.el10                     rhel-10-for-x86_64-appstream-rpms                   28 k
+ postfix-sqlite                  x86_64                  2:3.8.5-8.el10                     rhel-10-for-x86_64-appstream-rpms                   24 k
+Installing dependencies:
+ libpq                           x86_64                  16.8-2.el10_0                      rhel-10-for-x86_64-baseos-rpms                     257 k
+ tinycdb                         x86_64                  0.80-4.el10                        rhel-10-for-x86_64-appstream-rpms                   36 k
+
+Transaction Summary
+=====================================================================================================================================================
+Install  8 Packages
+
+Total download size: 466 k
+Installed size: 1.2 M
+Downloading Packages:
+(1/8): postfix-mysql-3.8.5-8.el10.x86_64.rpm                                                                          39 kB/s |  30 kB     00:00    
+(2/8): postfix-pgsql-3.8.5-8.el10.x86_64.rpm                                                                         9.4 kB/s |  28 kB     00:03    
+(3/8): postfix-sqlite-3.8.5-8.el10.x86_64.rpm                                                                        7.5 kB/s |  24 kB     00:03    
+(4/8): postfix-pcre-3.8.5-8.el10.x86_64.rpm                                                                           53 kB/s |  27 kB     00:00    
+(5/8): postfix-cdb-3.8.5-8.el10.x86_64.rpm                                                                           6.7 kB/s |  21 kB     00:03    
+(6/8): libpq-16.8-2.el10_0.x86_64.rpm                                                                                583 kB/s | 257 kB     00:00    
+(7/8): postfix-ldap-3.8.5-8.el10.x86_64.rpm                                                                           15 kB/s |  44 kB     00:02    
+(8/8): tinycdb-0.80-4.el10.x86_64.rpm                                                                                 11 kB/s |  36 kB     00:03    
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                 70 kB/s | 466 kB     00:06     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                             1/1 
+  Installing       : libpq-16.8-2.el10_0.x86_64                                                                                                  1/8 
+  Installing       : tinycdb-0.80-4.el10.x86_64                                                                                                  2/8 
+  Installing       : postfix-cdb-2:3.8.5-8.el10.x86_64                                                                                           3/8 
+  Installing       : postfix-pgsql-2:3.8.5-8.el10.x86_64                                                                                         4/8 
+  Installing       : postfix-ldap-2:3.8.5-8.el10.x86_64                                                                                          5/8 
+  Installing       : postfix-pcre-2:3.8.5-8.el10.x86_64                                                                                          6/8 
+  Installing       : postfix-sqlite-2:3.8.5-8.el10.x86_64                                                                                        7/8 
+  Installing       : postfix-mysql-2:3.8.5-8.el10.x86_64                                                                                         8/8 
+  Running scriptlet: postfix-mysql-2:3.8.5-8.el10.x86_64                                                                                         8/8 
+Installed products updated.
+
+Installed:
+  libpq-16.8-2.el10_0.x86_64          postfix-cdb-2:3.8.5-8.el10.x86_64    postfix-ldap-2:3.8.5-8.el10.x86_64    postfix-mysql-2:3.8.5-8.el10.x86_64 
+  postfix-pcre-2:3.8.5-8.el10.x86_64  postfix-pgsql-2:3.8.5-8.el10.x86_64  postfix-sqlite-2:3.8.5-8.el10.x86_64  tinycdb-0.80-4.el10.x86_64          
+
+Complete!
+root@192:~# 
+root@192:~# 
+root@192:~# vi /etc/postfix/main.cf
+root@192:~# 
+root@192:~# service postfix restart
+Redirecting to /bin/systemctl restart postfix.service
+root@192:~# 
+root@192:~# 
+root@192:~# dnf install mailx* -y
+Updating Subscription Management repositories.
+Last metadata expiration check: 3:05:09 ago on Sun 10 Aug 2025 07:21:36 PM IST.
+Dependencies resolved.
+=====================================================================================================================================================
+ Package                   Architecture              Version                              Repository                                            Size
+=====================================================================================================================================================
+Installing:
+ s-nail                    x86_64                    14.9.24-12.el10                      rhel-10-for-x86_64-appstream-rpms                    638 k
+
+Transaction Summary
+=====================================================================================================================================================
+Install  1 Package
+
+Total download size: 638 k
+Installed size: 1.2 M
+Downloading Packages:
+s-nail-14.9.24-12.el10.x86_64.rpm                                                                                    1.5 MB/s | 638 kB     00:00    
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                1.5 MB/s | 638 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                             1/1 
+  Running scriptlet: s-nail-14.9.24-12.el10.x86_64                                                                                               1/1 
+  Installing       : s-nail-14.9.24-12.el10.x86_64                                                                                               1/1 
+  Running scriptlet: s-nail-14.9.24-12.el10.x86_64                                                                                               1/1 
+Installed products updated.
+
+Installed:
+  s-nail-14.9.24-12.el10.x86_64                                                                                                                      
+
+Complete!
+root@192:~# 
+root@192:~# mail -v san@nux.com
+s-nail: No such file to load: /root/.mailrc
+s-nail: bind: unknown or unsupported capability: kel: :kel
+s-nail: Warning -- v15-compat=yes will be default in v14.10.0!
+s-nail: P(seudo)R(andom)N(umber)G(enerator): arc4random
+s-nail: There are messages in the error ring, manageable via `errors' command
+Subject: 
+To: san@nux.com
+
+s-nail: 
+s-nail: (Interrupt -- one more to kill letter)
+
+[9]+  Stopped                 mail -v san@nux.com
+root@192:~# 
+root@192:~# 
+root@192:~# mail -v san@nux.com
+s-nail: No such file to load: /root/.mailrc
+s-nail: bind: unknown or unsupported capability: kel: :kel
+s-nail: Warning -- v15-compat=yes will be default in v14.10.0!
+s-nail: P(seudo)R(andom)N(umber)G(enerator): arc4random
+s-nail: There are messages in the error ring, manageable via `errors' command
+Subject: 
+[10]+  Stopped                 mail -v san@nux.com
+root@192:~# 
+root@192:~# mail -v harikdh007@gmail.com
+s-nail: No such file to load: /root/.mailrc
+s-nail: bind: unknown or unsupported capability: kel: :kel
+s-nail: Warning -- v15-compat=yes will be default in v14.10.0!
+s-nail: P(seudo)R(andom)N(umber)G(enerator): arc4random
+s-nail: There are messages in the error ring, manageable via `errors' command
+Subject: hi how are you
+To: harikdh007@gmail.com
+
+
+hi thishari
+
+[11]+  Stopped                 mail -v harikdh007@gmail.com
+root@192:~# 
+root@192:~# 
+root@192:~# 
+
